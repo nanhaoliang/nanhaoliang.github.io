@@ -5,28 +5,41 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<script type="text/javascript" src="js/canvas-particle.js"></script>
-	<style>
-		body {
-			background-color: #fff
-		}
-
-		.text1 {
-			border: 1px solid #fff;
-			border-radius: 5px;
-			background: #4169E1;
-			width: 500px;
-			height: 300px;
-			margin: 13% auto;
-			opacity: 0.5;
-		}
-	</style>
+	<link rel="stylesheet" href="css/text1.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
 </head>
 
 <body>
 	<!-- 背景div -->
 	<div id="mydiv" style="height:auto;"></div>
 	<div class="text1">
-		666
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+					<form class="form-horizontal">
+						<span class="heading">admin</span>
+						<div class="form-group">
+							<input type="email" class="form-control" id="inputEmail3" placeholder="用户名或电子邮件">
+							<i class="fa fa-user"></i>
+						</div>
+						<div class="form-group help">
+							<input type="password" class="form-control" id="inputPassword3" placeholder="密　码">
+							<i class="fa fa-lock"></i>
+							<a href="#" class="fa fa-question-circle"></a>
+						</div>
+						<div class="form-group">
+							<div class="main-checkbox">
+								<input type="checkbox" value="None" id="checkbox1" name="check" />
+								<label for="checkbox1"></label>
+							</div>
+							<span class="text">Remember me</span>
+							<button type="submit" class="btn btn-default" onclick="text()">登录</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript">
 		window.onload = function () {
@@ -38,7 +51,7 @@
 				width: 2,
 				count: 220,		//点个数
 				color: "121, 162, 185", 	//点颜色
-				stroke: "119,136,153", 		//线条颜色
+				stroke: "0,180,239", 		//线条颜色
 				dist: 7000, 	//点吸附距离
 				e_dist: 20000, 	//鼠标吸附加速距离
 				max_conn: 10 	//点到点最大连接数
@@ -46,6 +59,9 @@
 
 			//调用
 			CanvasParticle(config);
+		}
+		function text(){
+			location.href='./index.html';
 		}
 	</script>
 </body>
