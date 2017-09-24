@@ -1,0 +1,89 @@
+
+ .am-tiput{
+    width: 100%!important;
+    height: 2rem!important;
+    border-radius:22px!important;
+    margin-top: 1rem;
+}
+
+.am-sea{
+    position: absolute;
+    left: 8px;
+    top: -2px;
+}
+
+.am-xiaox{
+    border-top: 0.1rem solid #ccc;
+    height: 33px;
+}
+.am-te1{
+    height: 29px;
+    line-height: 1.9;
+    -webkit-box-flex: 0;
+    padding: 0.2rem;
+    flex-grow: 0;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-right: .01rem solid #ccc;
+}
+.am-xiaox .am-te1 .am-texp{
+    margin: 0rem 0px 0.5rem 0px;
+    font-size: 14px;
+    color: #1bbc9b;
+    text-align: center;
+}
+.am-sxia{
+    margin-top: 0.5rem;
+    height: 22px;
+    overflow:hidden;
+}
+
+/* 图片轮播 */
+.text-leng{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+ul,li{ 
+    list-style:none;
+}
+.box{ 
+    height:35px; 
+    background:#000; 
+}
+.t_news{ 
+    height:22px;  
+    color:#000;  
+    overflow:hidden; 
+    position:relative;
+    font-size: 1.3rem;
+}
+.t_news b{ 
+    line-height:19px; 
+    font-weight:bold; 
+    display:inline-block;
+}
+.news_li,.swap{ 
+    line-height:19px; 
+    display:inline-block; 
+    position:absolute; top:0;
+}
+.news_li a,.swap a{ 
+    color:#000;
+}
+.swap{
+    top:19px;
+}
+
+/* 标题 */
+.am-tit{
+    height: 2.5rem;
+    background: #f2f2f2;
+}
+.am-tit .am-zyfd{
+    margin: 0.3rem 0px 0px 0px;
+    font-size: 1.2rem;
+}
