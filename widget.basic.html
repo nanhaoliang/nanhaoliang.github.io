@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Widget</title>
+  <title>主页标题</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,11 +16,11 @@
 </head>
 <body>
 <!-- Header顶部 -->
-<header data-am-widget="header" class="am-header am-header-default">
-  <div class="am-u-sm-9 am-input-group am-input-group-sm">
-    <div class="am-input-group">
+<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+  <div class="am-u-sm-9 am-input-group am-input-group-sm" >
+    <div class="am-input-group" style="margin-top: 0.4rem;" data-am-sticky>
       <span class="am-input-group-label" style="padding:0px;color:black;background:bottom;border: 0px;">
-        <i class="am-icon-search am-icon-fw" style=" margin-top: 6px;color: #fff;"></i>
+        <i class="am-icon-search am-icon-fw" style=" margin-top: 3px;color: #fff;"></i>
       </span>
       <input type="search" class="am-tiput am-form-field" id="keyword" style="font-size: 1.3rem!important;">
     </div>
@@ -30,13 +30,13 @@
 
 <!-- Menu左侧滑出分类 -->
 <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
-  <a href="javascript: void(0)" class="am-menu-toggle">
+  <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 5px; z-index: 1999;">
     <i class="am-menu-toggle-icon am-icon-bars"></i>
   </a>
   <div class="am-offcanvas">
     <div class="am-offcanvas-bar">
       <ul class="am-menu-nav sm-block-grid-1">
-        <div style="width:5%;height:5%;border:1px solid red;"></div>
+        <!--<div style="width:5%;height:5%;border:1px solid red;"></div>-->
         <li class="">
             <a href="##">首页</a>
         </li>
@@ -133,29 +133,30 @@
 
 <!-- list按钮导航 -->
 <div class="am-u-sm-12" style="margin: 0.5rem 0 0.5rem 0;">
-    <ul class="am-navbar-nav am-cf am-avg-sm-4">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4" style="position: initial;">
         <li>
-          <a href="tel:123456789" style="color: #3bb4f2;">
-            <span class="am-icon-desktop"></span>
+          <!--<a href="tel:123456789" style="color: #3bb4f2;">-->
+          	<a href="##" style="color: #3bb4f2;">
+            <span class="am-icon-desktop" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">热门直播</span>
           </a>
         </li>
         <li data-am-navbar-share>
           <a href="###" style="color: #5eb95e;">
             <!-- <span class="am-icon-share-square-o"></span>分享 -->
-            <span class="am-icon-edit"></span>
+            <span class="am-icon-edit" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">学术文章</span>
           </a>
         </li>
         <li data-am-navbar-qrcode>
           <a href="###" style="color: #F37B1D;">
-            <span class="am-icon-flag"></span>
+            <span class="am-icon-flag" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">进修学院</span>
           </a>
         </li>
         <li>
           <a href="##" style="color: #dd514c;">
-            <span class="am-icon-leaf"></span>
+            <span class="am-icon-leaf" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">实时问答</span>
           </a>
         </li>
@@ -180,69 +181,139 @@
   </div>
 </div>
 
-<!-- 标题 -->
+<!-- 直播标题 -->
 <div class="am-u-sm-12 am-tit">
     <div class="am-cf">
-        <p class="am-fl am-zyfd" style="color:#999">名师讲堂</p>
-        <p class="am-fr am-zyfd" style="color:#19bd9b">更多精彩<span class="am-icon-paper-plane-o" style="padding-left: 0.3rem"></span></p>
+        <p class="am-fl am-zyfd" style="color:#999">实时直播</p>
+        <p class="am-fr am-zyfd" style="color:#19bd9b">更多<span class="am-icon-wifi" style="padding-left: 0.3rem"></span></p>
       </div>
 </div>
 
 
-<!-- Gallery -->
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
-  am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
+<!--直播内容-->
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default">
   <li>
     <div class="am-gallery-item">
-      <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg"
-         class="">
-        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"
-             alt="远方 有一个地方 那里种有我们的梦想" />
-        <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
+	  		<img src="http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg" />
+	  		<div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        
         <div class="am-gallery-desc">2375-09-26</div>
-      </a>
+      <!--</a>-->
+    </div>
+  </li>
+  <li name="nei3">
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容22222222</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        <div class="am-gallery-desc">2375-09-26</div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li name="nei3">
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容33333333</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        <div class="am-gallery-desc">2375-09-26</div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li name="nei3"> 
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-4.jpg"class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容4444444</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        <div class="am-gallery-desc">2375-09-26</div>
+      <!--</a>-->
+    </div>
+  </li>
+  <div class="am-u-sm-12 am-u-sm-centered" style="text-align: center; padding: 0px;" id="gengdu" >
+    <a class="am-btn am-btn-primary am-btn-sm" style="width: 100%;" href="#more" id="texths" onclick="ttt()"></a>
+  </div>
+</ul>
+
+
+<!-- 录播标题 -->
+<div class="am-u-sm-12 am-tit">
+    <div class="am-cf">
+        <p class="am-fl am-zyfd" style="color:#999">精彩录播</p>
+        <p class="am-fr am-zyfd" style="color:#19bd9b">更多回放<span class="am-icon-caret-square-o-left" style="padding-left: 0.3rem"></span></p>
+      </div>
+</div>
+
+
+<!--录播内容-->
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-3 am-avg-md-3 am-avg-lg-4 am-gallery-default">
+  <li>
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"/>
+        <!--<span class="am-icon-video-camera"></span>-->     
+        <h3 class="am-gallery-title">内容内容111111111</h3>
+        <div class="am-gallery-desc">2375-09-26</div>
+      <!--</a>-->
     </div>
   </li>
   <li>
     <div class="am-gallery-item">
-      <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg"
-         class="">
-        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"
-             alt="某天 也许会相遇 相遇在这个好地方" />
-        <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/>
+        <h3 class="am-gallery-title">内容内容22222222</h3>
         <div class="am-gallery-desc">2375-09-26</div>
-      </a>
+      <!--</a>-->
     </div>
   </li>
   <li>
     <div class="am-gallery-item">
-      <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg"
-         class="">
-        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"
-             alt="不要太担心 只因为我相信" />
-        <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
+        <h3 class="am-gallery-title">内容内容3333333</h3>
         <div class="am-gallery-desc">2375-09-26</div>
-      </a>
+      <!--</a>-->
     </div>
   </li>
   <li>
     <div class="am-gallery-item">
-      <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg"
-         class="">
-        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"
-             alt="终会走过这条遥远的道路" />
-        <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-4.jpg"class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/>
+        <h3 class="am-gallery-title">内容内容4444444</h3>
         <div class="am-gallery-desc">2375-09-26</div>
-      </a>
+      <!--</a>-->
+    </div>
+  </li>
+  <li>
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
+        <h3 class="am-gallery-title">内容内容3333333</h3>
+        <div class="am-gallery-desc">2375-09-26</div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li>
+    <div class="am-gallery-item am-cha">
+    	<span class="am-icon-angle-double-right am-icon-lg"></span>
+    	<p style="margin-top: 1rem;">查看详情</p>
     </div>
   </li>
 </ul>
 
-<!-- List -->
-
-
 <!-- Navbar -->
-<!-- <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">
+ <!--<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">
   <ul class="am-navbar-nav am-cf am-avg-sm-4">
     <li>
       <a href="tel:123456789">
@@ -286,6 +357,28 @@
 <script src="assets/js/jquery-3.1.1.min.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
 <script type="text/javascript">
+	
+	//初始化操作
+	$(function(){
+		$("[name='nei3']").hide();
+		$("#texths").text("显示更多 ∨");
+	});
+	
+	//直播显示更多操作
+	var job=0;
+	function ttt(){
+		if(job == 0){
+				$("[name='nei3']").show(800);
+				$("#texths").text("收起内容 ∧");
+				job=1;
+		}else{
+				$("[name='nei3']").hide(800);
+				$("#texths").text("显示更多 ∨");
+				job=0;
+		}
+	}
+	
+	//顶部搜索框搜索操作
    $("#keyword").on('keypress',function(e) {  
         var keycode = e.keyCode;  
         var searchName = $(this).val();  
@@ -309,6 +402,7 @@
       }
       setTimeout(b,3000);//滚动间隔时间 现在是3秒
     }
+    
     $(document).ready(function(){
       $('.swap').html($('.news_li').html());
       x = $('.news_li');
