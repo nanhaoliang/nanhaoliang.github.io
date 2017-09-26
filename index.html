@@ -153,23 +153,23 @@
 
 <!-- list按钮导航 -->
 <div class="am-u-sm-12" style="margin: 0.5rem 0 0.5rem 0;">
-    <ul class="am-navbar-nav am-cf am-avg-sm-4" style="position: initial;">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4" style="position: initial;" data-am-scrollspynav="{offsetTop: 45}">
         <li>
-          <!--<a href="tel:123456789" style="color: #3bb4f2;">-->
-          	<a href="##" style="color: #3bb4f2;">
+          <!--<a href="tel:123456789" style="color: #3bb4f2;"> 可通过手机直接拨打-->
+          <a href="#about" style="color: #3bb4f2;" >
             <span class="am-icon-desktop" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">热门直播</span>
           </a>
         </li>
         <li data-am-navbar-share>
-          <a href="###" style="color: #5eb95e;">
+          <a href="#xueshu" style="color: #5eb95e;">
             <!-- <span class="am-icon-share-square-o"></span>分享 -->
             <span class="am-icon-edit" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">学术文章</span>
           </a>
         </li>
         <li data-am-navbar-qrcode>
-          <a href="###" style="color: #F37B1D;">
+          <a href="#zixun" style="color: #F37B1D;">
             <span class="am-icon-flag" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">进修学院</span>
           </a>
@@ -209,11 +209,10 @@
       </div>
 </div>
 
-
 <!--直播内容-->
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default">
-  <li>
-    <div class="am-gallery-item">
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default" id="about">
+  <li >
+    <div class="am-gallery-item" >
       <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
 	  		<img src="http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg" />
 	  		<div class="am-u-sm-12 am-padel">
@@ -266,15 +265,13 @@
   </div>
 </ul>
 
-
 <!-- 录播标题 -->
-<div class="am-u-sm-12 am-tit">
-    <div class="am-cf">
-        <p class="am-fl am-zyfd" style="color:#999">精彩录播</p>
-        <p class="am-fr am-zyfd" style="color:#19bd9b">更多回放<span class="am-icon-caret-square-o-left" style="padding-left: 0.3rem"></span></p>
-      </div>
+<div class="am-u-sm-12 am-tit" id="xueshu">
+  <div class="am-cf" >
+    <p class="am-fl am-zyfd" style="color:#999">精彩录播</p>
+    <p class="am-fr am-zyfd" style="color:#19bd9b">更多回放<span class="am-icon-caret-square-o-left" style="padding-left: 0.3rem"></span></p>
+  </div>
 </div>
-
 
 <!--录播内容-->
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3 am-avg-md-3 am-avg-lg-4 am-gallery-default">
@@ -332,8 +329,51 @@
   </li>
 </ul>
 
+<!--实时资讯-->
+<div data-am-widget="list_news" class="am-list-news am-list-news-default" id="zixun">
+   <!--列表标题-->
+   <div class="am-list-news-hd am-cf">
+      <!--带更多链接-->
+	    <a href="##" class="">
+	      <h2>栏目标题</h2>
+	        <span class="am-list-news-more am-fr">更多 &raquo;</span>
+	    </a>
+   </div>
+	 <div class="am-list-news-bd">
+	  <ul class="am-list">
+	      <li class="am-g am-list-item-dated">
+	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
+	          <span class="am-list-date">2017-09-26</span>
+	      </li>
+	      <li class="am-g am-list-item-dated">
+	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
+	          <span class="am-list-date">2017-09-26</span>
+	      </li>
+	      <li class="am-g am-list-item-dated">
+	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
+	          <span class="am-list-date">2017-09-26</span>
+	      </li>
+	  </ul>
+	  </div>
+</div>
+
+<!--页脚简介-->
+<footer data-am-widget="footer" class="am-footer am-footer-default" style="background: #EFEFEF; margin-top: 2rem;" data-am-footer="{  }">
+	<div class="am-footer-miscs ">
+	    <p>由 <a href="http://www.yunshipei.com/" title="11111" target="_blank" class="">hahahahah</a>提供技术支持</p>
+	    <p>CopyRight©2017  WobuZhidao .zhibo</p>
+	    <p>京ICP备13033158</p>
+	</div>
+</footer>
+
+<!--回到顶部-->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" style="width: 50px;">
+	<a href="#top" title="回到顶部">
+	      <i class="am-icon-btn am-icon-arrow-up am-active"></i>
+	</a>
+</div>
 <!-- Navbar -->
- <!--<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">-->
+ <!--<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">
   <ul class="am-navbar-nav am-cf am-avg-sm-4">
     <li>
       <a href="tel:123456789">
@@ -372,10 +412,11 @@
       </a>
     </li>
   </ul>
-</div> 
+</div> -->
 
 <script src="assets/js/jquery-3.1.1.min.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
+<!--<script src="assets/js/jquery.nav.js"></script>-->
 <script type="text/javascript">
 	
 	//初始化操作
@@ -383,17 +424,17 @@
 		// 显示更多按钮操作
 		$("[name='nei3']").hide();
 		$("#texths").text("显示更多 ∨");
-		
+//		$('#nav').onePageNav();
 		// 弹出模态窗口
-    $('#my-prompt').modal({
-      relatedTarget: this,
-      onConfirm: function(e) {
-        alert('你输入的是：' + e.data || '')
-      },
-      onCancel: function(e) {
-        alert('不想说!');
-      }
-    });
+//  $('#my-prompt').modal({
+//    relatedTarget: this,
+//    onConfirm: function(e) {
+//      alert('你输入的是：' + e.data || '')
+//    },
+//    onCancel: function(e) {
+//      alert('不想说!');
+//    }
+//  });
 	});
 	
 	
