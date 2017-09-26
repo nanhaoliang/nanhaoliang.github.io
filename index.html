@@ -15,6 +15,26 @@
   <link rel="stylesheet" href="assets/css/demo.css">
 </head>
 <body>
+	<!--<button
+  type="button"
+  class="am-btn am-btn-success"
+  id="doc-prompt-toggle">
+  Prompt
+</button>-->
+<!-- 模态窗口 -->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+  <div class="am-modal-dialog" style="border-radius: 1rem;">
+    <div class="am-modal-hd">登录</div>
+    <div class="am-modal-bd">
+      <input type="text" class="am-modal-prompt-input" placeholder="请输入手机号">
+    </div>
+    <div class="am-modal-footer">
+      <!--<span class="am-modal-btn" data-am-modal-cancel>取消</span>-->
+      <span class="am-modal-btn" onclick="comits()">提交</span>
+    </div>
+  </div>
+</div>
+
 <!-- Header顶部 -->
 <header data-am-widget="header" class="am-header am-header-default am-header-fixed">
   <div class="am-u-sm-9 am-input-group am-input-group-sm" >
@@ -313,7 +333,7 @@
 </ul>
 
 <!-- Navbar -->
- <!--<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">
+ <!--<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">-->
   <ul class="am-navbar-nav am-cf am-avg-sm-4">
     <li>
       <a href="tel:123456789">
@@ -352,7 +372,7 @@
       </a>
     </li>
   </ul>
-</div> -->
+</div> 
 
 <script src="assets/js/jquery-3.1.1.min.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
@@ -360,9 +380,22 @@
 	
 	//初始化操作
 	$(function(){
+		// 显示更多按钮操作
 		$("[name='nei3']").hide();
 		$("#texths").text("显示更多 ∨");
+		
+		// 弹出模态窗口
+    $('#my-prompt').modal({
+      relatedTarget: this,
+      onConfirm: function(e) {
+        alert('你输入的是：' + e.data || '')
+      },
+      onCancel: function(e) {
+        alert('不想说!');
+      }
+    });
 	});
+	
 	
 	//直播显示更多操作
 	var job=0;
