@@ -92,6 +92,13 @@ ul,li{
  	padding: 0px;
  }
 
+.am-jin{
+	text-align: center;
+    background: rgba(62, 150, 195, 0.98);
+    color: #f8f8f8;
+    border-radius: 5px;
+}
+
 .am-padel .am-zhi{
 	margin-top: 10px;
     text-align: right;
@@ -149,4 +156,17 @@ ul,li{
     position: absolute;
     top: 50%;
     left: 50%;
+}
+
+/*----------------------*/
+.am-pg{
+	width:100%;
+	height:auto;
+	text-align: center;
+}
+
+.am-wex{
+	color: #fff; 
+	margin: 1rem 0 0 0;
+	font-size: 1.5rem;
 }
