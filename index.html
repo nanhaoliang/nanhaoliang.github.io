@@ -168,7 +168,7 @@
 
 
 <!-- list按钮导航 -->
-<div class="am-u-sm-12" style="margin: 0.5rem 0 0.5rem 0;" data-am-scrollspynav="{className: {active: 'am-active'}}">
+<div class="am-u-sm-12 " style="margin: 0.5rem 0 0.5rem 0;" data-am-scrollspynav="{offsetTop: 45}">
     <ul class="am-navbar-nav am-cf am-avg-sm-4" style="position: initial;">
         <li>
           <!--<a href="tel:123456789" style="color: #3bb4f2;"> 可通过手机直接拨打-->
@@ -200,7 +200,7 @@
 </div>
 
 <!-- 轮播消息 -->
-<div class="am-u-sm-12 am-xiaox">
+<div class="am-u-sm-12 am-xiaox" id="about">
   <div class="am-u-sm-4 am-te1">
     <p class="am-texp"><span class="am-icon-volume-up" style=" margin-right: 0.5rem;"></span>今日消息</p>
   </div>
@@ -218,7 +218,7 @@
 </div>
 
 <!-- 直播标题 -->
-<div class="am-u-sm-12 am-tit">
+<div class="am-u-sm-12 am-tit" >
     <div class="am-cf">
         <p class="am-fl am-zyfd" style="color:#999">实时直播</p>
         <p class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</p>
@@ -226,7 +226,7 @@
 </div>
 
 <!--直播内容-->
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default" id="about">
+<ul data-am-widget="gallery"  class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default"  style="overflow: auto;" >
   <li >
     <div class="am-gallery-item" >
       <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
@@ -288,7 +288,7 @@
       <!--</a>-->
     </div>
   </li>
-  <div class="am-u-sm-12 am-u-sm-centered" style="text-align: center; padding: 0px;" id="gengdu" >
+  <div class="am-u-sm-12 am-u-sm-centered" style="text-align: center; padding: 0px; overflow: auto;" id="xueshu" >
     <button class="am-btn am-btn-primary am-btn-sm" style="width: 100%;" id="texths" onclick="ttt()"></button>
   </div>
 </ul>
@@ -302,14 +302,19 @@
 </div>
 
 <!--录播内容-->
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-3 am-avg-md-3 am-avg-lg-4 am-gallery-default">
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
   <li>
     <div class="am-gallery-item">
+    	<!--去除注释可直接点击查看大图-->
       <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
         <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"/>
-        <!--<span class="am-icon-video-camera"></span>-->     
-        <h3 class="am-gallery-title">内容内容111111111</h3>
-        <div class="am-gallery-desc">2375-09-26</div>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  		</div>
+        
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
+        </div>
       <!--</a>-->
     </div>
   </li>
@@ -317,8 +322,13 @@
     <div class="am-gallery-item">
       <!--<a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">-->
         <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/>
-        <h3 class="am-gallery-title">内容内容22222222</h3>
-        <div class="am-gallery-desc">2375-09-26</div>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  		</div>
+        
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
+        </div>
       <!--</a>-->
     </div>
   </li>
@@ -326,26 +336,13 @@
     <div class="am-gallery-item">
       <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
         <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
-        <h3 class="am-gallery-title">内容内容3333333</h3>
-        <div class="am-gallery-desc">2375-09-26</div>
-      <!--</a>-->
-    </div>
-  </li>
-  <li>
-    <div class="am-gallery-item">
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-4.jpg"class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/>
-        <h3 class="am-gallery-title">内容内容4444444</h3>
-        <div class="am-gallery-desc">2375-09-26</div>
-      <!--</a>-->
-    </div>
-  </li>
-  <li>
-    <div class="am-gallery-item">
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
-        <h3 class="am-gallery-title">内容内容3333333</h3>
-        <div class="am-gallery-desc">2375-09-26</div>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  		</div>
+        
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
+        </div>
       <!--</a>-->
     </div>
   </li>
@@ -455,10 +452,10 @@
 	
 	//初始化操作
 	$(function(){
+		
 		// 显示更多按钮操作
 		$("[name='nei3']").hide();
 		$("#texths").text("显示更多 ∨");
-//		$('#nav').onePageNav();
 		// 弹出模态窗口
 //  $('#my-prompt').modal({
 //    relatedTarget: this,
@@ -471,7 +468,7 @@
 //  });
 	});
 	
-	
+	// 显示更多按钮操作
 	var job=0;
 	function ttt(){
 		if(job == 0){
