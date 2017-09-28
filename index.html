@@ -1,0 +1,518 @@
+<!doctype html>
+<html class="no-js" >
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum=1,minimum=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+   <title>主页标题</title>
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body>
+<!-- 模态窗口 -->
+<!--<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+  <div class="am-modal-dialog" style="border-radius: 1rem;">
+    <div class="am-modal-hd">登录</div>
+    <div class="am-modal-bd">
+      <input type="text" class="am-modal-prompt-input" placeholder="请输入手机号">
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" onclick="comits()">提交</span>
+    </div>
+  </div>
+</div>-->
+
+<!-- Header顶部 -->
+<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+  <div class="am-u-sm-9 am-input-group am-input-group-sm" >
+    <div class="am-input-group" style="margin-top: 0.4rem;" data-am-sticky>
+      <span class="am-input-group-label" style="padding:0px;color:black;background:bottom;border: 0px;">
+        <i class="am-icon-search am-icon-fw" style=" margin-top: 3px;color: #fff;"></i>
+      </span>
+      <input type="search" class="am-tiput am-form-field" id="keyword" style="font-size: 1.3rem!important;">
+    </div>
+  </div>
+</header>
+<!-- Menu左侧滑出分类 -->
+<nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+  <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 3px; z-index: 1999;">
+    <i class="am-menu-toggle-icon am-icon-bars"></i>
+  </a>
+  <div class="am-offcanvas">
+    <div class="am-offcanvas-bar">
+      <ul class="am-menu-nav sm-block-grid-1">
+        <div class="am-pg">
+        		<div class="am-avg-sm-1" style="margin: 1rem 0px 1rem 0px;">
+        			<img class="am-circle" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" width="140" height="140"/>
+        			<p class="am-wex">微信姓名</p> 
+        		</div>
+        </div>
+        <li class="">
+        	<a href="##">已购商品</a>
+        </li>
+        <li class="am-parent">
+          <!--<a href="##" class="am-icon-star" style="margin-left: -15px;">我的收藏</a>-->
+          <a href="##">我的收藏</a>
+          <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
+            <li class="">
+              <a href="##">收藏资讯</a>
+            </li>
+            <li class="">
+              <a href="##">收藏录播</a>
+            </li>
+            <li class="">
+              <a href="##">关注直播</a>
+            </li>
+          </ul>
+        </li>
+        <li class="am-parent">
+          <a href="##">直播分类1</a>
+          <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
+            <li class="">
+              <a href="##">直播分类1</a>
+            </li>
+            <li class="">
+              <a href="##">直播分类2</a>
+            </li>
+            <li class="">
+              <a href="##">直播分类3</a>
+            </li>
+            <li class="am-menu-nav-channel">
+              <a href="##" title="全部">查看全部 &raquo;</a>
+            </li>
+          </ul>
+        </li>
+        <!--竖排显示-->
+        <!--<li class="am-parent">
+          <a href="##">直播分类2</a>
+          <ul class="am-menu-sub am-collapse  sm-block-grid-3 ">
+            <li class="">
+              <a href="##">直播分类1</a>
+            </li>
+            <li class="">
+              <a href="##">直播分类2</a>
+            </li>
+            <li class="">
+              <a href="##">直播分类3</a>
+            </li>
+            <li class="am-menu-nav-channel">
+              <a href="##" title="全部">查看全部 &raquo;</a>
+            </li>
+          </ul>
+        </li>-->
+				<!--横排显示-->
+         <li class="am-parent">
+          <a href="##">直播分类2</a>
+          <ul class="am-menu-sub am-collapse am-avg-sm-3">
+            <li class="">
+              <a href="##">公司</a>
+            </li>
+            <li class="">
+              <a href="##">人物</a>
+            </li>
+            <li class="">
+              <a href="##">趋势</a>
+            </li>
+            <li class="">
+              <a href="##">投融资</a>
+            </li>
+            <li class="">
+              <a href="##">创业公司</a>
+            </li>
+            <li class="">
+              <a href="##">创业人物</a>
+            </li>
+          </ul>
+        </li> 
+        <!-- <li class="">
+          <a href="##">111111</a>
+        </li>
+        <li class="">
+          <a href="##">222222</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Slider轮播图片 -->
+<div data-am-widget="slider" class="am-slider am-slider-c1 " data-am-slider='{"directionNav":false;&quot;directionNav&quot;:false}'>
+  <ul class="am-slides">
+          <li>
+              <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
+              <div class="am-slider-desc">11图片标题 标题标题</div>
+          </li>
+          <li>
+              <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
+              <div class="am-slider-desc">22图片标题 标题标题</div>
+          </li>
+          <li>
+              <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
+              <div class="am-slider-desc">33图片标题 标题标题</div>
+          </li>
+          <li>
+              <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
+              <div class="am-slider-desc">44图片标题 标题标题</div>
+          </li>
+  </ul>
+</div>
+
+
+<!-- list按钮导航 -->
+<div class="am-u-sm-12 " style="margin: 0.5rem 0 0.5rem 0;" data-am-scrollspynav="{offsetTop: 45}">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4" style="position: initial;">
+        <li>
+          <!--<a href="tel:123456789" style="color: #3bb4f2;"> 可通过手机直接拨打-->
+          <a href="#about" style="color: #3bb4f2;" >
+            <span class="am-icon-desktop" style="height: 3rem;"></span>
+            <span class="am-navbar-label" style="text-align: center;">热门直播</span>
+          </a>
+        </li>
+        <li >
+          <a href="#xueshu" style="color: #5eb95e;">
+            <!-- <span class="am-icon-share-square-o"></span>分享 -->
+            <span class="am-icon-play-circle-o" style="height: 3rem;"></span>
+            <span class="am-navbar-label" style="text-align: center;">精彩录播</span>
+          </a>
+        </li>
+        <li >
+          <a href="#zixun" style="color: #F37B1D;">
+            <span class="am-icon-edit" style="height: 3rem;"></span>
+            <span class="am-navbar-label" style="text-align: center;">学术资讯</span>
+          </a>
+        </li>
+        <li>
+          <a href="##" style="color: #dd514c;">
+            <span class="am-icon-leaf" style="height: 3rem;"></span>
+            <span class="am-navbar-label" style="text-align: center;">实时问答</span>
+          </a>
+        </li>
+      </ul>
+</div>
+
+<!-- 轮播消息 -->
+<div class="am-u-sm-12 am-xiaox" id="about">
+  <div class="am-u-sm-4 am-te1">
+    <p class="am-texp"><span class="am-icon-volume-up" style=" margin-right: 0.5rem;"></span>今日消息</p>
+  </div>
+  <div class="am-u-sm-8 am-sxia">
+        <div class="t_news text-leng">
+          <ul class="news_li" style="margin:0px; padding: 0px;">
+            <li><a href="#" >11111111111111</a></li>
+            <li><a href="#" >22222222222222</a></li>
+            <li><a href="#" >33333333333333</a></li>
+          </ul>
+          <ul class="swap" style="margin:0px; padding: 0px;"></ul>
+        </div>
+  </div>  
+  </div>
+</div>
+
+<!-- 直播标题 -->
+<div class="am-u-sm-12 am-tit" >
+    <div class="am-cf">
+        <p class="am-fl am-zyfd" style="color:#999">实时直播</p>
+        <p class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</p>
+    </div>
+</div>
+
+<!--直播内容-->
+<ul data-am-widget="gallery"  class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default"  style="overflow: auto;" >
+  <li >
+    <div class="am-gallery-item" >
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
+	  		<img src="http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg" />
+	  		<div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
+        	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
+        </div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li name="nei3">
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容22222222</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
+        	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
+        </div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li name="nei3">
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容33333333</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
+        	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
+        </div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li name="nei3"> 
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-4.jpg"class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容4444444</h3>
+        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
+	  		</div>
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
+        	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
+        </div>
+      <!--</a>-->
+    </div>
+  </li>
+  <div class="am-u-sm-12 am-u-sm-centered" style="text-align: center; padding: 0px; overflow: auto;" id="xueshu" >
+    <button class="am-btn am-btn-primary am-btn-sm" style="width: 100%;" id="texths" onclick="ttt()"></button>
+  </div>
+</ul>
+
+<!-- 录播标题 -->
+<div class="am-u-sm-12 am-tit" id="xueshu">
+  <div class="am-cf" >
+    <p class="am-fl am-zyfd" style="color:#999">精彩录播</p>
+    <p class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</p>
+  </div>
+</div>
+
+<!--录播内容-->
+<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
+  <li>
+    <div class="am-gallery-item">
+    	<!--去除注释可直接点击查看大图-->
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  		</div>
+        
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
+        </div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li>
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  		</div>
+        
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
+        </div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li>
+    <div class="am-gallery-item">
+      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
+        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
+        <div class="am-u-sm-12 am-padel">
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  		</div>
+        
+        <div class="am-gallery-desc am-u-sm-12 am-padel">
+        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
+        </div>
+      <!--</a>-->
+    </div>
+  </li>
+  <li>
+    <div class="am-gallery-item am-cha">
+    	<span class="am-icon-angle-double-right am-icon-lg"></span>
+    	<p style="margin-top: 1rem; font-size: 1.5rem;">查看详情</p>
+    </div>
+  </li>
+</ul>
+
+<!-- 资讯标题 -->
+<div class="am-u-sm-12 am-tit" id="xueshu">
+  <div class="am-cf" >
+    <p class="am-fl am-zyfd" style="color:#999">实时资讯</p>
+    <p class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</p>
+  </div>
+</div>
+
+<!--实时资讯-->
+<div data-am-widget="list_news" class="am-list-news am-list-news-default" id="zixun">
+   <!--列表标题-->
+   <div class="am-list-news-hd am-cf">
+      <!--带更多链接-->
+   </div>
+	 <div class="am-list-news-bd">
+	  <ul class="am-list">
+	      <li class="am-g am-list-item-dated">
+	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
+	          <span class="am-list-date">2017-09-26</span>
+	          <div class="am-list-item-text">囧人囧事囧照，人在囧途，越囧越萌。标记《带你出发，陪我回家》</div>
+	      </li>
+	      <li class="am-g am-list-item-dated">
+	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
+	          <span class="am-list-date">2017-09-26</span>
+	           <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色</div>
+	      </li>
+	      <li class="am-g am-list-item-dated">
+	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
+	          <span class="am-list-date">2017-09-26</span>
+	      </li>
+	  </ul>
+	  </div>
+</div>
+
+<!--页脚简介-->
+<footer data-am-widget="footer" class="am-footer am-footer-default" style="background: #EFEFEF; margin-top: 2rem;" data-am-footer="{  }">
+	<div class="am-footer-miscs ">
+	    <p>由 <a href="http://www.yunshipei.com/" title="11111" target="_blank" class="">hahahahah</a>提供技术支持</p>
+	    <p>CopyRight©2017  WobuZhidao .zhibo</p>
+	    <p>京ICP备13033158</p>
+	</div>
+</footer>
+
+<!--回到顶部-->
+<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" style="width: 50px;">
+	<a href="#top" title="回到顶部">
+	      <i class="am-icon-btn am-icon-arrow-up am-active"></i>
+	</a>
+</div>
+
+<!-- 底部固定导航 -->
+<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default "id="">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4">
+    <li>
+      <a href="index.html">
+        <span class="am-icon-home"></span>
+        <span class="am-navbar-label">首页</span>
+      </a>
+    </li>
+    <li>
+      <a href="assets/view/follow.html">
+        <span class="am-icon-heart"></span>
+        <span class="am-navbar-label">关注</span>
+      </a>
+    </li>
+    <li>
+      <a href="assets/view/lives.html">
+        <span class="am-icon-eye"></span>
+        <span class="am-navbar-label">直播</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="am-icon-play"></span>
+        <span class="am-navbar-label">录播</span>
+      </a>
+    </li>
+    <!--<li>
+      <a href="http://amazeui.org/getting-started">
+        <span class="am-icon-download"></span>
+        <span class="am-navbar-label">下载使用</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/allmobilize/amazeui/issues">
+        <span class="am-icon-location-arrow"></span>
+        <span class="am-navbar-label">Bug 反馈</span>
+      </a>
+    </li>-->
+  </ul>
+</div> 
+
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/angularJs/angular.min.js"></script>
+<script type="text/javascript">
+	
+	//初始化操作
+	$(function(){
+		
+		// 显示更多按钮操作
+		$("[name='nei3']").hide();
+		$("#texths").text("显示更多 ∨");
+		// 弹出模态窗口
+//  $('#my-prompt').modal({
+//    relatedTarget: this,
+//    onConfirm: function(e) {
+//      alert('你输入的是：' + e.data || '')
+//    },
+//    onCancel: function(e) {
+//      alert('不想说!');
+//    }
+//  });
+	});
+	
+	// 显示更多按钮操作
+	var job=0;
+	function ttt(){
+		if(job == 0){
+				$("[name='nei3']").show(800);
+				$("#texths").text("收起内容 ∧");
+				job=1;
+		}else{
+				$("[name='nei3']").hide(800);
+				$("#texths").text("显示更多 ∨");
+				job=0;
+		}
+	}
+	
+	//顶部搜索框搜索操作
+   $("#keyword").on('keypress',function(e) {  
+        var keycode = e.keyCode;  
+        var searchName = $(this).val();  
+        if(keycode=='13') {  
+            e.preventDefault();    
+            //请求搜索接口  
+            alert("搜索");
+        }  
+    }); 
+
+    // JavaScript Document 文字滚动
+    function b(){	
+      t = parseInt(x.css('top'));
+      y.css('top','19px');	
+      x.animate({top: t - 19 + 'px'},'slow');	//19为每个li的高度
+      if(Math.abs(t) == h-19){ //19为每个li的高度
+        y.animate({top:'0px'},'slow');
+        z=x;
+        x=y;
+        y=z;
+      }
+      setTimeout(b,3000);//滚动间隔时间 现在是3秒
+    }
+    
+    $(document).ready(function(){
+      $('.swap').html($('.news_li').html());
+      x = $('.news_li');
+      y = $('.swap');
+      h = $('.news_li li').length * 19; //19为每个li的高度
+      setTimeout(b,3000);//滚动间隔时间 现在是3秒
+      
+    })
+</script>
+</body>
+</html>
