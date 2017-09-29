@@ -30,17 +30,6 @@ function ttt() {
 	}
 }
 
-//顶部搜索框搜索操作
-$("#keyword").on('keypress', function(e) {
-	var keycode = e.keyCode;
-	var searchName = $(this).val();
-	if(keycode == '13') {
-		e.preventDefault();
-		//请求搜索接口  
-		alert("搜索");
-	}
-});
-
 // JavaScript Document 文字滚动
 function b() {
 	t = parseInt(x.css('top'));

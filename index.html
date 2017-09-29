@@ -420,5 +420,18 @@
     </li>
   </ul>
 </div> 
+
+<script type="text/javascript">
+	//顶部搜索框搜索操作
+$("#keyword").on('keypress', function(e) {
+	var keycode = e.keyCode;
+	var searchName = $(this).val();
+	if(keycode == '13') {
+		e.preventDefault();
+		//请求搜索接口  
+		alert("搜索");
+	}
+});
+</script>
 </body>
 </html>
