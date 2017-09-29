@@ -3,6 +3,8 @@
 $(function() {
 	// 显示更多按钮操作
 	$("[name='nei3']").hide();
+	$("[name='nei3']:first").show();
+	$("[name='nei3']:first").removeAttr("name");
 	$("#texths").text("显示更多 ∨");
 	// 弹出模态窗口
 	//  $('#my-prompt').modal({
@@ -62,4 +64,5 @@ window.onload = function() {
 	setTimeout(function() {
 		$("#loader-wrapper").hide();
 	}, 1000);
+	
 }

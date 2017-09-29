@@ -14,9 +14,12 @@
 		<link rel="stylesheet" href="../css/amazeui.min.css">
 		<link rel="stylesheet" href="../css/app.css">
 		<link rel="stylesheet" href="../css/demo.css">
+		
+		<script src="../js/angular.min.js"></script>
+		<script src="../js/lives/lives.js"></script>
 	</head>
 
-	<body style="background: #efefef;">
+	<body style="background: #efefef;" ng-app="lives" ng-controller="myLives">
 
 		<!-- Header顶部 -->
 		<header data-am-widget="header" class="am-header am-header-default am-header-fixed" id="lodd">
@@ -110,27 +113,27 @@
 		</nav>
 		
 		<!--直播列表内容-->
-		<div class="am-u-sm-12" style="padding: 0 6px 0 6px;">
+		<div ng-repeat="u in liveList" class="am-u-sm-12" style="padding: 0 6px 0 6px;">
 			<div class="am-u-sm-12 liti pamg">
 				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
-							<span class="am-badge am-badge-success am-u-sm-2" style="margin-top: 0.3rem;">合集</span>
-							<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">2017年会全程回放门票</span>
+							<span class="am-badge am-badge-success am-u-sm-2" style="margin-top: 0.3rem;">{{u.title}}</span>
+							<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title1}}</span>
 					</div>
 				<div class="am-u-sm-6 lpd">
 					<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default" style="overflow: auto; padding-top: 0;">
 						<li>
 							<div class="am-gallery-item">
-								<img src="http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg" style="border-radius: 10px;" />
+								<img src="{{u.img}}" style="border-radius: 10px;" />
 							</div>
 						</li>
 					</ul>
 				</div>
 				<div class="am-u-sm-6" style="">
 					<div class="am-u-sm-12 am-hui" style="font-size: 1.3rem;">
-						<span class="am-icon-user am-u-sm-12 lpd" style="color: #0e90d2;height: 2.5rem;"> haonan Liang</span>
-						<span class="am-icon-map-marker am-u-sm-12 lpd sp-ttx" style="height: 2.5rem;"> 临沂市兰山区人民医院</span>
-						<span class="am-icon-video-camera am-u-sm-12 lpd" style="height: 2.5rem;">&nbsp;<span>$</span>199.00</span>
-						<span class="am-u-sm-12 lpd" style="font-size: 1.1rem; color: #99a4bd; height: 2.5rem;">122人已报名</span>
+						<span class="am-icon-user am-u-sm-12 lpd" style="color: #0e90d2;height: 2.5rem;"> {{u.userName}}</span>
+						<span class="am-icon-map-marker am-u-sm-12 lpd sp-ttx" style="height: 2.5rem;"> {{u.place}}</span>
+						<span class="am-icon-video-camera am-u-sm-12 lpd" style="height: 2.5rem;">&nbsp;<span>$</span>{{u.price}}</span>
+						<span class="am-u-sm-12 lpd" style="font-size: 1.1rem; color: #99a4bd; height: 2.5rem;">{{u.signUp}}<span>人已报名</span></span>
 						<!--<div class="am-u-sm-12 lpd">
 							
 						</div>-->
@@ -189,13 +192,13 @@
 				</li>
 			</ul>
 		</div>
-
+		
 		<script src="../js/jquery-3.1.1.min.js"></script>
 		<script src="../js/amazeui.min.js"></script>
 		<script type="text/javascript">
 			//初始化操作
 			$(function() {
-
+					
 				
 			});
 			

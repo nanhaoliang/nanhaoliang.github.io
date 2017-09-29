@@ -16,12 +16,14 @@
   <link rel="stylesheet" href="assets/css/demo.css">
   <link rel="stylesheet" type="text/css" href="assets/css/loader.css"/>
   
+  <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/lives/home.js"></script>
   <script src="assets/js/jquery-3.1.1.min.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/homePage.js"></script>
 	
 </head>
-<body>
+<body ng-app="home" ng-controller="homePage">
 <!-- 模态窗口 -->
 <!--<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
   <div class="am-modal-dialog" style="border-radius: 1rem;">
@@ -34,6 +36,8 @@
     </div>
   </div>
 </div>-->
+
+<!--loading 加载动画-->
 <div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
@@ -64,7 +68,7 @@
         <div class="am-pg">
         		<div class="am-avg-sm-1" style="margin: 1rem 0px 1rem 0px;">
         			<img class="am-circle" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" width="140" height="140"/>
-        			<p class="am-wex">微信姓名</p> 
+        			<p class="am-wex">{{weixinName}}</p> 
         		</div>
         </div>
         <li class="">
@@ -134,22 +138,10 @@
 
 <!-- Slider轮播图片 -->
 <div data-am-widget="slider" class="am-slider am-slider-c1 " data-am-slider='{"directionNav":false;&quot;directionNav&quot;:false}'>
-  <ul class="am-slides">
-      <li>
-          <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
-          <div class="am-slider-desc">11图片标题 标题标题</div>
-      </li>
-      <li>
-          <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
-          <div class="am-slider-desc">22图片标题 标题标题</div>
-      </li>
-      <li>
-          <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
-          <div class="am-slider-desc">33图片标题 标题标题</div>
-      </li>
-      <li>
-          <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
-          <div class="am-slider-desc">44图片标题 标题标题</div>
+  <ul class="am-slides" >
+      <li ng-repeat="item in lunboImg">
+          <img src="{{item.img}}">
+          <div class="am-slider-desc">{{item.imgTitle}}</div>
       </li>
   </ul>
 </div>
@@ -193,10 +185,8 @@
   </div>
   <div class="am-u-sm-8 am-sxia">
         <div class="t_news text-leng">
-          <ul class="news_li" style="margin:0px; padding: 0px;">
-            <li><a href="#" >11111111111111</a></li>
-            <li><a href="#" >22222222222222</a></li>
-            <li><a href="#" >33333333333333</a></li>
+          <ul  class="news_li" style="margin:0px; padding: 0px;">
+            <li ng-repeat="lun in lunNews"><a href="{{lun.links}}" ></a>{{lun.message}}</li>
           </ul>
           <ul class="swap" style="margin:0px; padding: 0px;"></ul>
         </div>
@@ -213,66 +203,19 @@
 </div>
 
 <!--直播内容-->
-<ul data-am-widget="gallery"  class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default"  style="overflow: auto;" >
-  <li >
+<ul  class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default"  style="overflow: auto;" id="nei" >
+  <li name="nei3"  ng-repeat="mes in zhibo">
     <div class="am-gallery-item" >
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
-	  		<img src="http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg" />
+	  		<img src="{{mes.zhImg}}" />
 	  		<div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">{{mes.zhNei}}</h3>
         	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
 	  		</div>
         
         <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
+        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;<span>{{mes.zhTime}}</span></span>
         	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
         </div>
-      <!--</a>-->
-    </div>
-  </li>
-  <li name="nei3">
-    <div class="am-gallery-item">
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/>
-        <div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容22222222</h3>
-        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
-	  		</div>
-        <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
-        	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
-        </div>
-      <!--</a>-->
-    </div>
-  </li>
-  <li name="nei3">
-    <div class="am-gallery-item">
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
-        <div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容33333333</h3>
-        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
-	  		</div>
-        <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
-        	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
-        </div>
-      <!--</a>-->
-    </div>
-  </li>
-  <li name="nei3"> 
-    <div class="am-gallery-item">
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-4.jpg"class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"/>
-        <div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容4444444</h3>
-        	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
-	  		</div>
-        <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-8 am-padel am-icon-calendar-check-o">&nbsp;09-31&nbsp;18:61~18:62</span>
-        	<a href="#" class="am-u-sm-3 am-padel am-jin">进入直播</a>
-        </div>
-      <!--</a>-->
     </div>
   </li>
   <div class="am-u-sm-12 am-u-sm-centered" style="text-align: center; padding: 0px; overflow: auto;" id="xueshu" >
@@ -289,51 +232,19 @@
 </div>
 
 <!--录播内容-->
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
-  <li>
+<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
+  <li ng-repeat="lu in lubo">
     <div class="am-gallery-item">
-    	<!--去除注释可直接点击查看大图-->
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"/>
+        <img src="{{lu.luImg}}"/>
         <div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">{{lu.luNei}}</h3>
 	  		</div>
         
         <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
+        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;<span>{{lu.luTime}}</span></span>
         </div>
-      <!--</a>-->
     </div>
   </li>
-  <li>
-    <div class="am-gallery-item">
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"/>
-        <div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
-	  		</div>
-        
-        <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
-        </div>
-      <!--</a>-->
-    </div>
-  </li>
-  <li>
-    <div class="am-gallery-item">
-      <!--<a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">-->
-        <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"/>
-        <div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">内容内容111111111</h3>
-	  		</div>
-        
-        <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;09-31&nbsp;20:59</span>
-        </div>
-      <!--</a>-->
-    </div>
-  </li>
-  <li>
     <div class="am-gallery-item am-cha">
     	<span class="am-icon-angle-double-right am-icon-lg"></span>
     	<p style="margin-top: 1rem; font-size: 1.5rem;">查看详情</p>
@@ -350,26 +261,17 @@
 </div>
 
 <!--实时资讯-->
-<div data-am-widget="list_news" class="am-list-news am-list-news-default" id="zixun">
+<div class="am-list-news am-list-news-default" id="zixun">
    <!--列表标题-->
    <div class="am-list-news-hd am-cf">
       <!--带更多链接-->
    </div>
 	 <div class="am-list-news-bd">
 	  <ul class="am-list">
-	      <li class="am-g am-list-item-dated">
-	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
-	          <span class="am-list-date">2017-09-26</span>
-	          <div class="am-list-item-text">囧人囧事囧照，人在囧途，越囧越萌。标记《带你出发，陪我回家》</div>
-	      </li>
-	      <li class="am-g am-list-item-dated">
-	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
-	          <span class="am-list-date">2017-09-26</span>
-	           <div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色</div>
-	      </li>
-	      <li class="am-g am-list-item-dated">
-	          <a href="##" class="am-list-item-hd ">标题1111111111111111111</a>
-	          <span class="am-list-date">2017-09-26</span>
+	      <li ng-repeat="zi in information" class="am-g am-list-item-dated">
+	          <a href="##" class="am-list-item-hd ">{{zi.ziTitle}}</a>
+	          <span class="am-list-date">{{zi.ziTime}}</span>
+	          <div class="am-list-item-text">{{zi.ziZhai}}</div>
 	      </li>
 	  </ul>
 	  </div>
