@@ -8,11 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum=1,minimum=1, user-scalable=no">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-   <title>主页标题</title>
+  <title>主页标题</title>
+   
   <link rel="icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
   <link rel="stylesheet" href="assets/css/app.css">
   <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/loader.css"/>
+  
+  <script src="assets/js/jquery-3.1.1.min.js"></script>
+	<script src="assets/js/amazeui.min.js"></script>
+	<script src="assets/js/homePage.js"></script>
+	
 </head>
 <body>
 <!-- 模态窗口 -->
@@ -27,6 +34,12 @@
     </div>
   </div>
 </div>-->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title" style="top: 69%;">正在加载Live<br><span>V1.0</span></div>
+</div>
 
 <!-- Header顶部 -->
 <header data-am-widget="header" class="am-header am-header-default am-header-fixed">
@@ -39,6 +52,7 @@
     </div>
   </div>
 </header>
+
 <!-- Menu左侧滑出分类 -->
 <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
   <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 3px; z-index: 1999;">
@@ -71,6 +85,7 @@
             </li>
           </ul>
         </li>
+        <!--竖排显示-->
         <li class="am-parent">
           <a href="##">直播分类1</a>
           <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
@@ -88,24 +103,6 @@
             </li>
           </ul>
         </li>
-        <!--竖排显示-->
-        <!--<li class="am-parent">
-          <a href="##">直播分类2</a>
-          <ul class="am-menu-sub am-collapse  sm-block-grid-3 ">
-            <li class="">
-              <a href="##">直播分类1</a>
-            </li>
-            <li class="">
-              <a href="##">直播分类2</a>
-            </li>
-            <li class="">
-              <a href="##">直播分类3</a>
-            </li>
-            <li class="am-menu-nav-channel">
-              <a href="##" title="全部">查看全部 &raquo;</a>
-            </li>
-          </ul>
-        </li>-->
 				<!--横排显示-->
          <li class="am-parent">
           <a href="##">直播分类2</a>
@@ -130,12 +127,6 @@
             </li>
           </ul>
         </li> 
-        <!-- <li class="">
-          <a href="##">111111</a>
-        </li>
-        <li class="">
-          <a href="##">222222</a>
-        </li> -->
       </ul>
     </div>
   </div>
@@ -144,25 +135,24 @@
 <!-- Slider轮播图片 -->
 <div data-am-widget="slider" class="am-slider am-slider-c1 " data-am-slider='{"directionNav":false;&quot;directionNav&quot;:false}'>
   <ul class="am-slides">
-          <li>
-              <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
-              <div class="am-slider-desc">11图片标题 标题标题</div>
-          </li>
-          <li>
-              <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
-              <div class="am-slider-desc">22图片标题 标题标题</div>
-          </li>
-          <li>
-              <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
-              <div class="am-slider-desc">33图片标题 标题标题</div>
-          </li>
-          <li>
-              <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
-              <div class="am-slider-desc">44图片标题 标题标题</div>
-          </li>
+      <li>
+          <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg">
+          <div class="am-slider-desc">11图片标题 标题标题</div>
+      </li>
+      <li>
+          <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg">
+          <div class="am-slider-desc">22图片标题 标题标题</div>
+      </li>
+      <li>
+          <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg">
+          <div class="am-slider-desc">33图片标题 标题标题</div>
+      </li>
+      <li>
+          <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg">
+          <div class="am-slider-desc">44图片标题 标题标题</div>
+      </li>
   </ul>
 </div>
-
 
 <!-- list按钮导航 -->
 <div class="am-u-sm-12 " style="margin: 0.5rem 0 0.5rem 0;" data-am-scrollspynav="{offsetTop: 45}">
@@ -428,91 +418,7 @@
         <span class="am-navbar-label">录播</span>
       </a>
     </li>
-    <!--<li>
-      <a href="http://amazeui.org/getting-started">
-        <span class="am-icon-download"></span>
-        <span class="am-navbar-label">下载使用</span>
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/allmobilize/amazeui/issues">
-        <span class="am-icon-location-arrow"></span>
-        <span class="am-navbar-label">Bug 反馈</span>
-      </a>
-    </li>-->
   </ul>
 </div> 
-
-<script src="assets/js/jquery-3.1.1.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/angularJs/angular.min.js"></script>
-<script type="text/javascript">
-	
-	//初始化操作
-	$(function(){
-		
-		// 显示更多按钮操作
-		$("[name='nei3']").hide();
-		$("#texths").text("显示更多 ∨");
-		// 弹出模态窗口
-//  $('#my-prompt').modal({
-//    relatedTarget: this,
-//    onConfirm: function(e) {
-//      alert('你输入的是：' + e.data || '')
-//    },
-//    onCancel: function(e) {
-//      alert('不想说!');
-//    }
-//  });
-	});
-	
-	// 显示更多按钮操作
-	var job=0;
-	function ttt(){
-		if(job == 0){
-				$("[name='nei3']").show(800);
-				$("#texths").text("收起内容 ∧");
-				job=1;
-		}else{
-				$("[name='nei3']").hide(800);
-				$("#texths").text("显示更多 ∨");
-				job=0;
-		}
-	}
-	
-	//顶部搜索框搜索操作
-   $("#keyword").on('keypress',function(e) {  
-        var keycode = e.keyCode;  
-        var searchName = $(this).val();  
-        if(keycode=='13') {  
-            e.preventDefault();    
-            //请求搜索接口  
-            alert("搜索");
-        }  
-    }); 
-
-    // JavaScript Document 文字滚动
-    function b(){	
-      t = parseInt(x.css('top'));
-      y.css('top','19px');	
-      x.animate({top: t - 19 + 'px'},'slow');	//19为每个li的高度
-      if(Math.abs(t) == h-19){ //19为每个li的高度
-        y.animate({top:'0px'},'slow');
-        z=x;
-        x=y;
-        y=z;
-      }
-      setTimeout(b,3000);//滚动间隔时间 现在是3秒
-    }
-    
-    $(document).ready(function(){
-      $('.swap').html($('.news_li').html());
-      x = $('.news_li');
-      y = $('.swap');
-      h = $('.news_li li').length * 19; //19为每个li的高度
-      setTimeout(b,3000);//滚动间隔时间 现在是3秒
-      
-    })
-</script>
 </body>
 </html>
