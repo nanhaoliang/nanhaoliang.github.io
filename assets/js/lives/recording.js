@@ -1,49 +1,53 @@
-var app = angular.module('lives', []);
-app.controller('myLives', function($scope){
+var app = angular.module('records', []);
+app.controller('myRecord', function($scope){
+	
+	$scope.shows = true;
+	
 	$scope.liveList = [
 		{
 			id:"111111111111",
-			title:"合集",
+			title:"录播",
 			title1:"2017年会全程回放门票",
-			img:"http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg",
+			img:"http://mpic.tiankong.com/caf/a19/cafa19387b3321be67dfb9451051de70/640.jpg",
 			userId:"11111111",
-			userName:"haonanLiang",
+			userName:"奥巴牛",
 			place:"临沂市兰山区人民医院",
 			price:"199.00",
-			priceId:"000",
+			signUpId:"000",
 			signUp:"122",
+			kaiTime:"09-31 18:61-18:62"
 		},
 		{
 			id:"2222222222222",
-			title:"合集2",
+			title:"录播",
 			title1:"2017年会全程回放门票2",
-			img:"http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg",
+			img:"http://mpic.tiankong.com/caf/a19/cafa19387b3321be67dfb9451051de70/640.jpg",
 			userId:"2222222222",
-			userName:"haonanLiang2",
+			userName:"奥巴牛",
 			place:"临沂市兰山区人民医院",
 			price:"00.00",
-			priceId:"001",
+			signUpId:"001",
 			signUp:"222",
+			kaiTime:"09-31 18:61-18:62"
 		},
 		{
 			id:"2222222222222",
-			title:"合集2",
+			title:"录播",
 			title1:"2017年会全程回放门票2",
-			img:"http://mpic.tiankong.com/077/708/0777089ad18a688eee7c756a506e5f4a/640.jpg",
+			img:"http://mpic.tiankong.com/caf/a19/cafa19387b3321be67dfb9451051de70/640.jpg",
 			userId:"2222222222",
-			userName:"haonanLiang2",
+			userName:"奥巴牛",
 			place:"临沂市兰山区人民医院",
-			price:"299.00",
-			priceId:"000",
+			price:"00.00",
+			signUpId:"001",
 			signUp:"222",
+			kaiTime:"09-31 18:61-18:62"
 		},
 	]
-	
 	$scope.lives1 = $scope.liveList;
 	
 	// 全部
 	$scope.alls = function(){
-		$scope.lives1 = [];
 		$scope.lives1 = $scope.liveList;
 	}
 	
@@ -52,7 +56,7 @@ app.controller('myLives', function($scope){
 		var lives = $scope.liveList;
 		$scope.lives1 = [];
 		for (var a = 0; a < lives.length; a++) {
-			if(lives[a].priceId == "000"){
+			if(lives[a].signUpId == "000"){
 				$scope.lives1.push(lives[a]);
 			}
 		}
@@ -63,7 +67,7 @@ app.controller('myLives', function($scope){
 		var lives = $scope.liveList;
 		$scope.lives1 = [];
 		for (var a = 0; a < lives.length; a++) {
-			if(lives[a].priceId == "001"){
+			if(lives[a].signUpId == "001"){
 				$scope.lives1.push(lives[a]);
 			}
 		}

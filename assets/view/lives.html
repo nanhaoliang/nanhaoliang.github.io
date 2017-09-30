@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>主页标题</title>
+		<title>实时直播</title>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum=1,minimum=1, user-scalable=no">
@@ -112,11 +112,14 @@
 			</div>
 		</nav>
 		
+		<!--按钮分类组-->
+		<div ng-include="'../view/introduce/wallButtom.html'"></div>
+		
 		<!--直播列表内容-->
-		<div ng-repeat="u in liveList" class="am-u-sm-12" style="padding: 0 6px 0 6px;">
+		<div ng-repeat="u in lives1" class="am-u-sm-12" style="padding: 0 6px 0 6px;">
 			<div class="am-u-sm-12 liti pamg">
 				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
-							<span class="am-badge am-badge-success am-u-sm-2" style="margin-top: 0.3rem;">{{u.title}}</span>
+							<span class="am-badge am-badge-success am-radius am-u-sm-2" style="margin-top: 0.3rem;">{{u.title}}</span>
 							<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title1}}</span>
 					</div>
 				<div class="am-u-sm-6 lpd">
@@ -147,7 +150,7 @@
 		</div>
 
 		<!--页脚简介-->
-		<footer data-am-widget="footer" class="am-footer am-footer-default" style="background: #EFEFEF; margin-top: 2rem;" data-am-footer="{  }">
+		<footer class="am-footer am-footer-default" style="background: #EFEFEF; margin-top: 2rem;">
 			<div class="am-footer-miscs ">
 				<p>由
 					<a href="http://www.yunshipei.com/" title="11111" target="_blank" class="">hahahahah</a>提供技术支持</p>
@@ -164,34 +167,7 @@
 		</div>
 
 		<!-- 底部固定导航 -->
-		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default " id="">
-			<ul class="am-navbar-nav am-cf am-avg-sm-4">
-				<li>
-					<a href="../../index.html">
-						<span class="am-icon-home"></span>
-						<span class="am-navbar-label">首页</span>
-					</a>
-				</li>
-				<li>
-					<a href="../view/follow.html">
-						<span class="am-icon-heart"></span>
-						<span class="am-navbar-label">关注</span>
-					</a>
-				</li>
-				<li>
-					<a href="../view/lives.html">
-						<span class="am-icon-eye"></span>
-						<span class="am-navbar-label">直播</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span class="am-icon-play"></span>
-						<span class="am-navbar-label">录播</span>
-					</a>
-				</li>
-			</ul>
-		</div>
+		<div ng-include="'../view/introduce/allBottom.html'"></div>
 		
 		<script src="../js/jquery-3.1.1.min.js"></script>
 		<script src="../js/amazeui.min.js"></script>
