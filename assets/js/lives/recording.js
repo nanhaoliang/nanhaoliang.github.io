@@ -1,5 +1,5 @@
 var app = angular.module('records', []);
-app.controller('myRecord', function($scope){
+app.controller('myRecord', function($scope,$http){
 	
 	$scope.shows = true;
 	
@@ -72,4 +72,18 @@ app.controller('myRecord', function($scope){
 			}
 		}
 	}
+	
+	// 请求参数
+	$http({
+        method: 'GET',
+        url: 'https://www.runoob.com/try/angularjs/data/sites.php'
+    }).then(function successCallback(response) {
+            $scope.names = response.data.sites;
+        }, function errorCallback(response) {
+            // 请求失败执行代码
+			// alert(111)
+    });
+    
+    //传递参数
+    
 })

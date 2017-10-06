@@ -9,6 +9,7 @@ app.controller('homePage', function($scope,$interval){
     $scope.description = "验证码"; 
     var second=59;  
     var timerHandler; 
+    
 	// 轮播图
 	$scope.lunboImg = [
 		{

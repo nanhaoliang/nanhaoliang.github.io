@@ -25,21 +25,21 @@
 </head>
 <body ng-app="home" ng-controller="homePage">
 <!--模态框-->
-<div class="am-modal am-modal-prompt" tabindex="-1" id="my-confirm">
-  <div class="am-modal-dialog" style="border-radius: 1rem;">
+<!--<div class="am-modal am-modal-prompt" tabindex="-1" id="my-confirm">
+  <div class="am-modal-dialog" style="border-radius: 1rem;position: initial;">
     <div class="am-modal-hd">请登录</div>
     <div class="am-modal-bd" style="border: 0;padding-bottom: 1rem;">
-      <input type="tel" class="am-mod-input" ng-model="phones" placeholder="请输入手机号" pattern="[0-9]*" style="color:transparent;text-shadow: 0 0 0 #000000;">
+      <input type="tel" class="am-mod-input" ng-model="phones" placeholder="请输入手机号" pattern="[0-9]*">
     </div>
-    <div class="am-u-sm-12" style="margin-bottom: 2rem;">
-      <input type="tel" class="am-u-sm-6 am-mod-input" placeholder="请验证码" pattern="[0-9]*" style="margin-left: 2.5rem; color:transparent;text-shadow: 0 0 0 #000000;">
-      <button class="am-btn am-btn-primary am-btn-xs am-u-sm-3 " ng-click="getTestCode()" ng-bind="description" ng-disabled="canClick" style="margin: 0.8rem 2.4rem 0 0;">验证码</button>
+    <div class="am-u-sm-12" style="margin-bottom: 2rem;position: inherit;">
+      <input type="tel" class="am-u-sm-6 am-mod-input" placeholder="验证码" pattern="[0-9]*" style="margin-left: 2rem;">
+      <button class="am-btn am-btn-primary am-btn-xs am-u-sm-3 " ng-click="getTestCode()" ng-bind="description" ng-disabled="canClick" style="margin: 0.8rem 2rem 0 0;">验证码</button>
     </div>
     <div class="am-mo-footer" style="border-top: 1px solid #9e9e9e;">
       <span class="am-mo-btn" ng-click="common()" >登录</span>
     </div>
   </div>
-</div>
+</div>-->
 
 <!--loading 加载动画-->
 <div id="loader-wrapper">
@@ -47,9 +47,6 @@
 	<div class="loader-section section-left"></div>
 	<div class="loader-section section-right"></div>
 	<div class="load_title" style="top: 69%;">正在加载Live<br><span>V1.0</span></div>
-	<div class="load_title" style="top: 80%;">
-		
-	</div>
 </div>
 
 <!-- Header顶部 -->
@@ -98,7 +95,7 @@
         </li>
         <!--竖排显示-->
         <li class="am-parent">
-          <a href="##">直播分类1</a>
+          <a href="##">直播分类</a>
           <ul class="am-menu-sub am-collapse  sm-block-grid-2 ">
             <li class="">
               <a href="##">直播分类1</a>
@@ -116,7 +113,7 @@
         </li>
 				<!--横排显示-->
          <li class="am-parent">
-          <a href="##">直播分类2</a>
+          <a href="##">录播分类</a>
           <ul class="am-menu-sub am-collapse am-avg-sm-3">
             <li class="">
               <a href="##">公司</a>
@@ -205,7 +202,7 @@
 <div class="am-u-sm-12 am-tit" >
     <div class="am-cf">
         <p class="am-fl am-zyfd" style="color:#999">实时直播</p>
-        <p class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</p>
+        <a href="assets/view/lives.html" class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</a>
     </div>
 </div>
 
@@ -234,7 +231,7 @@
 <div class="am-u-sm-12 am-tit" id="xueshu">
   <div class="am-cf" >
     <p class="am-fl am-zyfd" style="color:#999">精彩录播</p>
-    <p class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</p>
+    <a href="assets/view/recording.html" class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</a>
   </div>
 </div>
 
