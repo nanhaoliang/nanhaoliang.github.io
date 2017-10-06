@@ -24,25 +24,32 @@
 	
 </head>
 <body ng-app="home" ng-controller="homePage">
-<!-- 模态窗口 -->
-<!--<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+<!--模态框-->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="my-confirm">
   <div class="am-modal-dialog" style="border-radius: 1rem;">
-    <div class="am-modal-hd">登录</div>
-    <div class="am-modal-bd">
-      <input type="text" class="am-modal-prompt-input" placeholder="请输入手机号">
+    <div class="am-modal-hd">请登录</div>
+    <div class="am-modal-bd" style="border: 0;padding-bottom: 1rem;">
+      <input type="text" class="am-modal-prompt-input" ng-model="phones" placeholder="请输入手机号">
     </div>
-    <div class="am-modal-footer">
-      <span class="am-modal-btn" onclick="comits()">提交</span>
+    <div class="am-u-sm-12" style="margin-bottom: 2rem;">
+      <input type="text" class="am-u-sm-6 am-mod-input" placeholder="请验证码" style="margin-left: 2.5rem;">
+      <button class="am-btn am-btn-primary am-btn-xs am-u-sm-3 " ng-click="getTestCode()" ng-bind="description" ng-disabled="canClick" style="margin: 0.8rem 2.4rem 0 0;">验证码</button>
+    </div>
+    <div class="am-mo-footer" style="border-top: 1px solid #9e9e9e;">
+      <span class="am-mo-btn" ng-click="common()" >登录</span>
     </div>
   </div>
-</div>-->
+</div>
 
 <!--loading 加载动画-->
 <div id="loader-wrapper">
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-    <div class="load_title" style="top: 69%;">正在加载Live<br><span>V1.0</span></div>
+	<div id="loader"></div>
+	<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div>
+	<div class="load_title" style="top: 69%;">正在加载Live<br><span>V1.0</span></div>
+	<div class="load_title" style="top: 80%;">
+		
+	</div>
 </div>
 
 <!-- Header顶部 -->
@@ -59,7 +66,7 @@
 
 <!-- Menu左侧滑出分类 -->
 <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
-  <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 3px; z-index: 1999;">
+  <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 3px; z-index: 1200;" >
     <i class="am-menu-toggle-icon am-icon-bars"></i>
   </a>
   <div class="am-offcanvas">
@@ -67,7 +74,7 @@
       <ul class="am-menu-nav sm-block-grid-1">
         <div class="am-pg">
         		<div class="am-avg-sm-1" style="margin: 1rem 0px 1rem 0px;">
-        			<img class="am-circle" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" width="140" height="140"/>
+        			<img class="am-circle" ng-src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" width="140" height="140"/>
         			<p class="am-wex">{{weixinName}}</p> 
         		</div>
         </div>
@@ -140,7 +147,7 @@
 <div data-am-widget="slider" class="am-slider am-slider-c1 " data-am-slider='{"directionNav":false;&quot;directionNav&quot;:false}'>
   <ul class="am-slides" >
       <li ng-repeat="item in lunboImg">
-          <img src="{{item.img}}">
+          <img ng-src="{{item.img}}">
           <div class="am-slider-desc">{{item.imgTitle}}</div>
       </li>
   </ul>
@@ -170,7 +177,7 @@
           </a>
         </li>
         <li>
-          <a href="##" style="color: #dd514c;">
+          <a href="##" style="color: #dd514c;" ng-click="wenda()">
             <span class="am-icon-leaf" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">实时问答</span>
           </a>
@@ -206,7 +213,7 @@
 <ul  class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default"  style="overflow: auto;" id="nei" >
   <li name="nei3"  ng-repeat="mes in zhibo">
     <div class="am-gallery-item" >
-	  		<img src="{{mes.zhImg}}" />
+	  		<img ng-src="{{mes.zhImg}}" />
 	  		<div class="am-u-sm-12 am-padel">
 	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">{{mes.zhNei}}</h3>
         	<span class="am-icon-video-camera am-u-sm-2 am-padel am-zhi"></span>
@@ -235,7 +242,7 @@
 <ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
   <li ng-repeat="lu in lubo">
     <div class="am-gallery-item">
-        <img src="{{lu.luImg}}"/>
+        <img ng-src="{{lu.luImg}}"/>
         <div class="am-u-sm-12 am-padel">
 	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">{{lu.luNei}}</h3>
 	  		</div>
@@ -303,12 +310,6 @@
       <a href="index.html">
         <span class="am-icon-home"></span>
         <span class="am-navbar-label">首页</span>
-      </a>
-    </li>
-    <li>
-      <a href="assets/view/follow.html">
-        <span class="am-icon-heart"></span>
-        <span class="am-navbar-label">关注</span>
       </a>
     </li>
     <li>

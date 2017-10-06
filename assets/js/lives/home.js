@@ -1,7 +1,14 @@
 var app = angular.module('home', []);
-app.controller('homePage', function($scope){
-	$scope.weixinName = "微信姓名";
+app.controller('homePage', function($scope,$interval){
 	
+	$scope.weixinName = "微信姓名";
+	$scope.phones = ""; //手机号
+	
+	//验证码倒计时
+	$scope.canClick=false; 
+    $scope.description = "验证码"; 
+    var second=59;  
+    var timerHandler; 
 	// 轮播图
 	$scope.lunboImg = [
 		{
@@ -99,4 +106,53 @@ app.controller('homePage', function($scope){
 			ziZhai:""
 		}
 	]
+	
+	//登录验证码
+	$scope.getTestCode = function(){
+		var mobile = $scope.phones;
+		 if(mobile.length==0){  
+           alert('请输入手机号码！');  
+           document.form1.mobile.focus();  
+           return false;  
+	     }      
+        if(mobile.length!=11){  
+            alert('请输入有效的手机号码！');  
+            document.form1.mobile.focus();  
+            return false;  
+	     }  
+        var myreg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,2,3,5-9]))\d{8}$/  
+        if(!myreg.test(mobile))  
+        {  
+            alert('请输入有效的手机号码！');  
+            document.form1.mobile.focus();  
+            return false;  
+        }  
+        
+        timerHandler =$interval(function(){  
+            if(second<=0){  
+                $interval.cancel(timerHandler);    //当执行的时间59s,结束时，取消定时器 ，cancle方法取消   
+                second=59;  
+                $scope.description="验证码";  
+                $scope.canClick=false;    //因为 ng-disabled属于布尔值，设置按钮可以点击，可点击发送  
+            }else{  
+                $scope.description=second+"s";  
+                second--;  
+                $scope.canClick=true;  
+            }  
+        },1000)   //每一秒执行一次$interval定时器方法  
+    };  
+	
+	//注册手机号
+	$scope.common = function(){
+		//关闭模态框
+		if($scope.phones != ""){
+			$("#my-confirm").modal('close');
+		}
+	}
+	
+	
+	// 实时问答 弹出框
+	$scope.wenda = function(){
+		alert("--敬请期待--");
+	}
 })

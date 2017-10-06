@@ -201,3 +201,44 @@ ul,li{
 .pamg{
 	padding: 0px 0 8px 0px;margin: 1rem 0 1rem 0px;
 }
+
+.am-mo-footer{
+	height: 44px;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.am-mo-btn{
+	display: table-cell!important;
+    padding: 0 5px;
+    height: 44px;
+    -webkit-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    font-size: 1.6rem;
+    line-height: 44px;
+    text-align: center;
+    color: #0e90d2;
+    display: block;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    border-right: 1px solid #dedede;
+}
+
+.am-mod-input {
+	display: block;
+    margin: 5px auto 0 auto;
+    border-radius: 0;
+    padding: 5px;
+    line-height: 1.8rem;
+    /* width: 80%; */
+    border: 1px solid #dedede;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}

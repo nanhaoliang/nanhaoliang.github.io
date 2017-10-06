@@ -6,16 +6,19 @@ $(function() {
 	$("[name='nei3']:first").show();
 	$("[name='nei3']:first").removeAttr("name");
 	$("#texths").text("显示更多 ∨");
-	// 弹出模态窗口
-	//  $('#my-prompt').modal({
-	//    relatedTarget: this,
-	//    onConfirm: function(e) {
-	//      alert('你输入的是：' + e.data || '')
-	//    },
-	//    onCancel: function(e) {
-	//      alert('不想说!');
-	//    }
-	//  });
+	
+	// 初始化模态框
+    $('#my-confirm').modal({
+      relatedTarget: this,
+      closeViaDimmer: false,
+//    onConfirm: function(e) {
+//      确认按钮输入内容
+//    },
+//    onCancel: function(e) {
+//      取消按钮输入内容
+//    }
+    });
+    $('#my-confirm').find('.am-modal-btn').off('click.close.modal.amui');
 });
 
 // 显示更多按钮操作
