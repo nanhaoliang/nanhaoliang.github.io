@@ -10,6 +10,7 @@ app.controller('myRecord', function($scope,$http,$window){
 	// 初始化查询全部接口
 	$http({
 		method: 'GET',
+		headers:{'Content-Type': 'application/x-www-form-urlencoded'},
 		url: 'http://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1'
 	}).then(function successCallback(response) {
 		$scope.liveList = response.data.data;
