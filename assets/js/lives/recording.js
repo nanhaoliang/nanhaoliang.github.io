@@ -27,7 +27,7 @@ app.controller('myRecord', function($scope,$http,$window){
 //	　　　　alert(data);
 //	　　}
 //	);
-
+	//lianghaonan
 	$http.post('https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1',
 	{'Content-Type':'application/x-www-form-urlencoded'})
 	.success(function(data){
