@@ -117,16 +117,17 @@
 		
 		<!--录播列表内容-->
 		<div ng-repeat="u in lives1" class="am-u-sm-12" style="padding: 0 6px 0 6px;" ng-if="shows">
+			<span style="display: none;">{{u.vid}}</span>
 			<div class="am-u-sm-12 liti pamg">
 				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
-							<span class="am-badge am-badge-warning am-radius am-u-sm-2" style="margin-top: 0.3rem;">{{u.title}}</span>
-							<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title1}}</span>
+							<span class="am-badge am-badge-warning am-radius am-u-sm-2" style="margin-top: 0.3rem;">录播</span>
+							<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title}}</span>
 					</div>
 				<div class="am-u-sm-6 lpd">
 					<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default" style="overflow: auto; padding-top: 0;">
 						<li>
 							<div class="am-gallery-item">
-								<img ng-src="{{u.img}}" style="border-radius: 10px;" />
+								<img ng-src="{{u.first_image}}" style="border-radius: 10px;" />
 							</div>
 						</li>
 					</ul>
@@ -136,14 +137,14 @@
 						<span class="am-icon-user am-u-sm-12 lpd" style="color: #0e90d2;height: 2.5rem;"> {{u.userName}}&nbsp;<span style="color: #99a4bd;">未开播</span></span>
 						<span class="am-icon-map-marker am-u-sm-12 lpd sp-ttx" style="height: 2.5rem;"> {{u.place}}</span>
 						<span class="am-icon-video-camera am-u-sm-12 lpd" style="height: 2.5rem;">&nbsp;<span>$</span>{{u.price}}</span>
-						<span class="am-u-sm-12 am-icon-eye lpd" style="font-size: 1.1rem; color: #99a4bd; height: 2.5rem;">{{u.signUp}}<span>人已观看</span></span>
+						<span class="am-u-sm-12 am-icon-eye lpd" style="font-size: 1.1rem; color: #99a4bd; height: 2.5rem;">{{u.times}}<span>人已观看</span></span>
 						<!--<div class="am-u-sm-12 lpd">
 							
 						</div>-->
 					</div>
 				</div>
 				<div class="am-u-sm-12">
-					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;">{{u.kaiTime}}&nbsp;<span style="color: #99a4bd;">开播时间</span></span>
+					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;padding: 0;">{{u.ptime}}&nbsp;<span style="color: #99a4bd;">上传时间</span></span>
 					<a href="#" class="am-u-sm-3 lpd lvbo">查看回放</a>
 				</div>
 			</div>
