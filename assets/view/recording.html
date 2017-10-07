@@ -28,7 +28,7 @@
 					<span class="am-input-group-label" style="padding:0px;color:black;background:bottom;border: 0px;">
 				       <i class="am-icon-search am-icon-fw" style=" margin-top: 3px;color: #fff;"></i>
 				    </span>
-					<input type="search" class="am-tiput am-form-field" id="keyword" style="font-size: 1.3rem!important;">
+					<input type="search" class="am-tiput am-form-field" style="font-size: 1.3rem!important;" ng-keyup="enterEvent($event)" ng-model="searchs">
 				</div>
 			</div>
 		</header>
@@ -117,7 +117,7 @@
 
 		
 		<!--录播列表内容-->
-		<div ng-repeat="u in lives1" class="am-u-sm-12" style="padding: 0 6px 0 6px;" ng-if="shows">
+		<div ng-repeat="u in lives1" class="am-u-sm-12" style="padding: 0 6px 0 6px;">
 			<span style="display: none;">{{u.vid}}</span>
 			<div class="am-u-sm-12 liti pamg">
 				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
@@ -146,7 +146,7 @@
 				</div>
 				<div class="am-u-sm-12">
 					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;padding: 0;">{{u.ptime}}&nbsp;<span style="color: #99a4bd;">上传时间</span></span>
-					<a href="#" class="am-u-sm-3 lpd lvbo">查看回放</a>
+					<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)">查看回放</a>
 				</div>
 			</div>
 		</div>
