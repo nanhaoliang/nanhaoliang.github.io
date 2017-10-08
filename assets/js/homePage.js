@@ -19,6 +19,7 @@ $(function() {
 //    }
     });
     $('#my-confirm').find('.am-modal-btn').off('click.close.modal.amui');
+    
 });
 
 // 显示更多按钮操作
@@ -67,5 +68,5 @@ window.onload = function() {
 	setTimeout(function() {
 		$("#loader-wrapper").hide();
 	}, 1000);
-	
 }
+

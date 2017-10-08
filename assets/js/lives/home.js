@@ -1,5 +1,11 @@
 var app = angular.module('home', []);
-app.controller('homePage', function($scope,$interval){
+
+app.run(['$anchorScroll', function($anchorScroll) {
+        $anchorScroll.yOffset = 50;   
+        // 在此处配置偏移量
+}])
+
+app.controller('homePage', function($scope,$interval,$location,$anchorScroll){
 	
 	$scope.weixinName = "微信姓名";
 	$scope.phones = ""; //手机号
@@ -151,9 +157,22 @@ app.controller('homePage', function($scope,$interval){
 		}
 	}
 	
-	
 	// 实时问答 弹出框
 	$scope.wenda = function(){
 		alert("--敬请期待--");
+	}
+	
+	// 锚点
+	$scope.mao1 = function(){
+		$location.hash('about');
+        $anchorScroll();
+	}
+	$scope.mao2 = function(){
+		$location.hash('xueshu');
+        $anchorScroll();
+	}
+	$scope.mao3 = function(){
+		$location.hash('zixun');
+        $anchorScroll();
 	}
 })

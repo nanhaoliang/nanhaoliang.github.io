@@ -76,7 +76,6 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 	//查看回放
 	$scope.vidoh = function(u,orderServiceId){
 		console.log(orderServiceId);
-		var orderServiceId = "qqq";
 		window.location.href = "../view/lives/recordingHome.html?vid=" + u.vid;
 	}
 	
@@ -106,6 +105,25 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 
 // 直播列表页
 var app = angular.module('vidos', []);
-app.controller('myVidos', function($scope,$http,$window,$location){
-	var orderServiceId = parseInt($location.search().vid); 
-})
+
+app.config(['$locationProvider', function ($locationProvider) {
+	$locationProvider.html5Mode(true);
+}]);
+
+app.controller('myVidos', ['$scope','$location', function($scope,$location){
+	$scope.luId = "";
+	console.log($location.search().vid); 
+	$scope.luId = $location.search().vid;
+	
+	document.getElementsByName('lubo')[0].id = $scope.luId;
+	console.log(document.getElementsByName('lubo')[0].id)
+
+//	var ttd = document.getElementById('ttd');
+	var vid = $scope.luId
+	var player = polyvObject('#'+vid+'').videoPlayer({
+	    'width':'100%',
+	    'height':'300',
+	    'vid' : vid,
+	    'flashvars' : {"setScreen":"100"}
+	});
+}]);

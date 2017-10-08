@@ -18,9 +18,8 @@
 		<script src="../js/angular.min.js"></script>
 		<script src="../js/lives/recording.js"></script>
 	</head>
-
+	
 	<body style="background: #efefef;" ng-app="records" ng-controller="myRecord">
-
 		<!-- Header顶部 -->
 		<header data-am-widget="header" class="am-header am-header-default am-header-fixed" id="lodd">
 			<div class="am-u-sm-9 am-input-group am-input-group-sm">
@@ -32,11 +31,10 @@
 				</div>
 			</div>
 		</header>
-
 		<!-- Menu左侧滑出分类 -->
 		<nav data-am-widget="menu" class="am-menu am-menu-offcanvas1" data-am-menu-offcanvas>
-			<a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 3px; z-index: 1999;">
-				<i class="am-menu-toggle-icon am-icon-bars"></i>
+			<a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 7px; z-index: 1088;margin-right: 16px;background: #3bb4f2;width: 38px;height: 36px;line-height: 35px;" >
+			    <i class="am-menu-toggle-icon am-icon-bars"></i>
 			</a>
 			<div class="am-offcanvas">
 				<div class="am-offcanvas-bar">
@@ -121,8 +119,8 @@
 			<span style="display: none;">{{u.vid}}</span>
 			<div class="am-u-sm-12 liti pamg">
 				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
-							<span class="am-badge am-badge-warning am-radius am-u-sm-2" style="margin-top: 0.3rem;">录播</span>
-							<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title}}</span>
+					<span class="am-badge am-badge-warning am-radius am-u-sm-2" style="margin-top: 0.3rem;">录播</span>
+					<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title}}</span>
 					</div>
 				<div class="am-u-sm-6 lpd">
 					<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default" style="overflow: auto; padding-top: 0;">
@@ -166,24 +164,6 @@
 		
 		<script src="../js/jquery-3.1.1.min.js"></script>
 		<script src="../js/amazeui.min.js"></script>
-		<script type="text/javascript">
-			//初始化操作
-			$(function() {
-					
-				
-			});
-			
-			//顶部搜索框搜索操作
-			$("#keyword").on('keypress', function(e) {
-				var keycode = e.keyCode;
-				var searchName = $(this).val();
-				if(keycode == '13') {
-					e.preventDefault();
-					//请求搜索接口  
-					alert("搜索");
-				}
-			});
-		</script>
 	</body>
 
 </html>

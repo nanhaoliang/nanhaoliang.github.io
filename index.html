@@ -50,20 +50,22 @@
 </div>
 
 <!-- Header顶部 -->
-<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+<header data-am-widget="header" class="am-header am-topbar-inverse am-header-fixed">
   <div class="am-u-sm-9 am-input-group am-input-group-sm" >
-    <div class="am-input-group" style="margin-top: 0.4rem;" data-am-sticky>
+  	<h1 class="am-topbar-brand" style="padding: 0;">
+	    <a href="#">Live Page</a>
+	  </h1>
+    <!--<div class="am-input-group" style="margin-top: 0.4rem;" data-am-sticky>
       <span class="am-input-group-label" style="padding:0px;color:black;background:bottom;border: 0px;">
         <i class="am-icon-search am-icon-fw" style=" margin-top: 3px;color: #fff;"></i>
       </span>
       <input type="search" class="am-tiput am-form-field" id="keyword" style="font-size: 1.3rem!important;" placeholder="输入关键字搜索">
-    </div>
+    </div>-->
   </div>
 </header>
-
 <!-- Menu左侧滑出分类 -->
 <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
-  <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 3px; z-index: 1200;" >
+  <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 7px; z-index: 1088;margin-right: 16px;background: #3bb4f2;width: 38px;height: 36px;line-height: 35px;" >
     <i class="am-menu-toggle-icon am-icon-bars"></i>
   </a>
   <div class="am-offcanvas">
@@ -155,20 +157,20 @@
     <ul class="am-navbar-nav am-cf am-avg-sm-4" style="position: initial;">
         <li>
           <!--<a href="tel:123456789" style="color: #3bb4f2;"> 可通过手机直接拨打-->
-          <a href="#about" style="color: #3bb4f2;" >
+          <a href="javascript:;" style="color: #3bb4f2;" ng-click="mao1()">
             <span class="am-icon-desktop" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">热门直播</span>
           </a>
         </li>
         <li >
-          <a href="#xueshu" style="color: #5eb95e;">
+          <a href="javascript:;" style="color: #5eb95e;" ng-click="mao2()">
             <!-- <span class="am-icon-share-square-o"></span>分享 -->
             <span class="am-icon-play-circle-o" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">精彩录播</span>
           </a>
         </li>
         <li >
-          <a href="#zixun" style="color: #F37B1D;">
+          <a href="javascript:;" style="color: #F37B1D;" ng-click="mao3()">
             <span class="am-icon-edit" style="height: 3rem;"></span>
             <span class="am-navbar-label" style="text-align: center;">学术资讯</span>
           </a>
@@ -282,15 +284,15 @@
 </div>
 
 <!--页脚简介-->
-<!--<div ng-include="'assets/view/introduce/footer.html'"></div>-->
-<footer class="am-footer am-footer-default" style="background: #EFEFEF; margin-top: 2rem; margin-bottom: 49px;">
+<div ng-include="'assets/view/introduce/footer.html'"></div>
+<!--<footer class="am-footer am-footer-default" style="background: #EFEFEF; margin-top: 2rem; margin-bottom: 49px;">
 	<div class="am-footer-miscs ">
 		<p>由
 			<a href="http://www.yunshipei.com/" title="11111" target="_blank" class="">hahahahah</a>提供技术支持</p>
 		<p>CopyRight©2017 WobuZhidao .zhibo</p>
 		<p>京ICP备13033158</p>
 	</div>
-</footer>
+</footer>-->
 
 <!--回到顶部-->
 <div data-am-widget="gotop" class="am-gotop am-gotop-fixed" style="width: 50px; bottom: 62px;">
