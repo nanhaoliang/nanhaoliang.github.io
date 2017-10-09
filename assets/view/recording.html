@@ -14,12 +14,15 @@
 		<link rel="stylesheet" href="../css/amazeui.min.css">
 		<link rel="stylesheet" href="../css/app.css">
 		<link rel="stylesheet" href="../css/demo.css">
+		<link rel="stylesheet" type="text/css" href="../css/angular-pull-to-refresh.min.css"/>
 		
 		<script src="../js/angular.min.js"></script>
+		<script src="../js/angular-pull-to-refresh.min.js"></script>
 		<script src="../js/lives/recording.js"></script>
 	</head>
 	
 	<body style="background: #efefef;" ng-app="records" ng-controller="myRecord">
+		
 		<!-- Header顶部 -->
 		<header data-am-widget="header" class="am-header am-header-default am-header-fixed" id="lodd">
 			<div class="am-u-sm-9 am-input-group am-input-group-sm">
@@ -27,10 +30,13 @@
 					<span class="am-input-group-label" style="padding:0px;color:black;background:bottom;border: 0px;">
 				       <i class="am-icon-search am-icon-fw" style=" margin-top: 3px;color: #fff;"></i>
 				    </span>
-					<input type="search" class="am-tiput am-form-field" style="font-size: 1.3rem!important;" ng-keyup="enterEvent($event)" ng-model="searchs">
+				    <form id="myform" action="" onsubmit="return false;">
+					<input type="search" id="myinput" class="am-tiput am-form-field" style="font-size: 1.3rem!important;" ng-model="searchs">
+					</form>
 				</div>
 			</div>
 		</header>
+		
 		<!-- Menu左侧滑出分类 -->
 		<nav data-am-widget="menu" class="am-menu am-menu-offcanvas1" data-am-menu-offcanvas>
 			<a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 7px; z-index: 1088;margin-right: 16px;background: #3bb4f2;width: 38px;height: 36px;line-height: 35px;" >
@@ -112,12 +118,11 @@
 		
 		<!--按钮分类组-->
 		<div ng-include="'../view/introduce/wallButtom.html'"></div>
-
 		
 		<!--录播列表内容-->
-		<div ng-repeat="u in lives1" class="am-u-sm-12" style="padding: 0 6px 0 6px;">
+		<div ng-repeat="u in lives1" class="am-u-sm-12 " style="padding: 0 6px 0 6px;">
 			<span style="display: none;">{{u.vid}}</span>
-			<div class="am-u-sm-12 liti pamg">
+			<div class="am-u-sm-12 liti pamg am-animation-fade">
 				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
 					<span class="am-badge am-badge-warning am-radius am-u-sm-2" style="margin-top: 0.3rem;">录播</span>
 					<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title}}</span>
@@ -131,7 +136,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="am-u-sm-6" style="">
+				<div class="am-u-sm-6">
 					<div class="am-u-sm-12 am-hui" style="font-size: 1.3rem;">
 						<span class="am-icon-user am-u-sm-12 lpd" style="color: #0e90d2;height: 2.5rem;"> {{u.userName}}&nbsp;<span style="color: #99a4bd;">未开播</span></span>
 						<span class="am-icon-map-marker am-u-sm-12 lpd sp-ttx" style="height: 2.5rem;"> {{u.place}}</span>
@@ -149,6 +154,11 @@
 			</div>
 		</div>
 
+		<!--加载更多-->
+		<div class="am-u-sm-12" ng-if="lives1.length != ''">
+			<button id="butt" type="button" class="am-btn am-btn-primary am-btn-block" ng-click="gengdu()"><i id="jiads" class="am-icon-spinner"></i>&nbsp;&nbsp;加载跟多</button>
+		</div>
+		<div id="a" style="display: none;">{{count}}</div>
 		<!--页脚简介-->
 		<div ng-include="'../view/introduce/footer.html'"></div>
 		

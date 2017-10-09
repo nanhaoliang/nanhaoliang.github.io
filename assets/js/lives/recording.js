@@ -1,15 +1,19 @@
-var app = angular.module('records', []);
+var app = angular.module('records', ['mgcrea.pullToRefresh']);
 app.controller('myRecord', function($scope,$http,$window,$location){
 	//直播列表
 	$scope.liveList = [];
 	$scope.lives1 = [];
 	//顶部搜索框
-	$scope.searc;hs = "";
+	$scope.searchs = "";
+	//记载更多条数
+	$scope.count = 10;
+	//点击加载跟多判断点的什么 0 全部  1付费 2限免
+	$scope.fenlei = "0";
 	
 	// 初始化查询全部接口
 	$http({
 		method: 'GET',
-		url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1'
+		url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=10'
 	}).then(function successCallback(response) {
 		$scope.liveList = response.data.data;
 		$scope.lives1 = $scope.liveList;
@@ -30,9 +34,10 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 		
 	//全部
 	$scope.alls = function(){
+		$scope.fenlei = "0";
 		$http({
 			method: 'GET',
-			url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1'
+			url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=10'
 		}).then(function successCallback(response) {
 			$scope.liveList = response.data.data;
 			$scope.lives1 = $scope.liveList;
@@ -45,9 +50,10 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 		
 	//付费
 	$scope.pay = function(){
+		$scope.fenlei = "1";
 		$http({
 			method: 'GET',
-			url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&catatree=1,1507344254119'
+			url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=10&catatree=1,1507344254119'
 		}).then(function successCallback(response) {
 			$scope.liveList = response.data.data;
 			$scope.lives1 = $scope.liveList;
@@ -60,9 +66,10 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 	
 	//免费
 	$scope.free = function(){
+		$scope.fenlei = "2";
 		$http({
 			method: 'GET',
-			url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&catatree=1,1507344560956'
+			url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=10&catatree=1,1507344560956'
 		}).then(function successCallback(response) {
 			$scope.liveList = response.data.data;
 			$scope.lives1 = $scope.liveList;
@@ -73,27 +80,81 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 		});
 	}
 	
+	//加载更多
+	$scope.gengdu = function(){
+		var x=document.getElementById("a").innerHTML;
+		x=parseInt(x)+10;
+		document.getElementById("a").innerHTML=x;
+		$("#jiads").addClass("am-icon-spin");
+		$("#butt").addClass("am-disabled");
+		if($scope.fenlei == "0"){
+			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'';
+		}else if($scope.fenlei == "1"){
+			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344254119';
+		}else if($scope.fenlei == "2"){
+			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344560956';
+		}
+		$http({
+			method: 'GET',
+			url: urls
+		}).then(function successCallback(response) {
+			$scope.liveList = response.data.data;
+			$scope.lives1 = $scope.liveList;
+			$("#jiads").removeClass("am-icon-spin");
+			$("#butt").removeClass("am-disabled");
+		}, function errorCallback(response) {
+			// 请求失败执行代码
+			alert("刷新失败");
+		});
+	}
+	
+	//顶部刷新
+	$scope.shux = function(){
+		$("#shaux").addClass("am-icon-spin");
+		$http({
+				method: 'GET',
+				url: 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=10'
+			}).then(function successCallback(response) {
+				$scope.liveList = response.data.data;
+				$scope.lives1 = $scope.liveList;
+				var timeout = setTimeout(function(){
+					$("#shaux").removeClass("am-icon-spin");
+				},2000);
+				location.reload();
+			}, function errorCallback(response) {
+				// 请求失败执行代码
+				alert("刷新失败");
+		});
+	}
+	
 	//查看回放
 	$scope.vidoh = function(u,orderServiceId){
 		console.log(orderServiceId);
 		window.location.href = "../view/lives/recordingHome.html?vid=" + u.vid;
 	}
 	
-    //搜索视频 
-    $scope.clickEvent = function() {
-    	var searc = $scope.searchs;
-        $http({
-			method: 'GET',
-			url: 'https://v.polyv.net/uc/services/rest?method=searchByTitle&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&keyword='+searc+'&numPerPage=1'
-		}).then(function successCallback(response) {
-			$scope.liveList = response.data.data;
-			$scope.lives1 = $scope.liveList;
-			console.log($scope.lives1);
-		}, function errorCallback(response) {
-			// 请求失败执行代码
-			alert("刷新失败");
-		});
-    }
+	$('#myinput').bind('search', function () {
+         //coding
+        alert(1);
+        var searc = $scope.searchs;
+        alert(1)
+//      $http({
+//			method: 'GET',
+//			url: 'https://v.polyv.net/uc/services/rest?method=searchByTitle&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&keyword='+searc+'&numPerPage=1'
+//		}).then(function successCallback(response) {
+//			$scope.liveList = response.data.data;
+//			$scope.lives1 = $scope.liveList;
+//			console.log($scope.lives1);
+//		}, function errorCallback(response) {
+//			// 请求失败执行代码
+//			alert("刷新失败");
+//		});
+     });
+     
+//  //搜索视频 
+//  $scope.clickEvent = function() {
+//  	
+//  }
     
     $scope.enterEvent = function(e) {
         var keycode = window.event?e.keyCode:e.which;
