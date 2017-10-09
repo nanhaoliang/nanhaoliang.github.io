@@ -241,3 +241,11 @@ ul,li{
     -ms-appearance: none;
     appearance: none;
 }
+
+.vidoss{
+	height: auto;
+	padding: 0.5rem;
+	background: #fff;
+	border-radius: 1rem;
+	margin: 0.5rem 0 0.5rem 0;
+}

@@ -14,16 +14,50 @@
 		<link rel="stylesheet" href="../../css/amazeui.min.css">
 		<link rel="stylesheet" href="../../css/app.css">
 		<link rel="stylesheet" href="../../css/demo.css">
-		
+
 		<script src="../../js/angular.min.js"></script>
 		<script src="../../js/lives/recording.js"></script>
+		<script src="../../js/jquery-3.1.1.min.js"></script>
 		<script src='//player.polyv.net/script/polyvplayer.min.js'></script>
+		<script src="../../js/recording.js"></script>
 		<base href="/">
 	</head>
-	<body ng-app="vidos" ng-controller="myVidos">
-	<div class="am-u-sm-12" style="padding: 0;">
-		<!--<p id="ttd">{{luId}}</p>-->
-		<div id="" name="lubo"></div>
-	</div>
+
+	<body ng-app="vidos" ng-controller="myVidos" style="background: #efefef;">
+		<div class="am-u-sm-12" style="padding: 0;">
+			<!--<p id="ttd">{{luId}}</p>-->
+			<div id="" name="lubo"></div>
+		</div>
+		<div class="am-g">
+			<div class="am-u-sm-12 vidoss">
+				<span class="am-badge am-badge-warning am-radius am-u-sm-2" style="margin-top: 0.3rem;">录播</span>
+				<span class="am-text-sm sp-ttx am-u-sm-9" style="float: none;">{{xiangq.title}}</span>
+			</div>
+			<div class="am-u-sm-12 vidoss">
+				<span class="am-badge am-badge-primary am-radius am-u-sm-2" style="margin-top: 0.3rem;">讲师</span>
+				<span class="am-text-sm sp-ttx am-u-sm-6" style="float: left;">尼古拉斯</span>
+				<span class="am-text-sm am-u-sm-3 am-icon-eye" style=" color: #99a4bd; height: 2.5rem;">{{xiangq.times}}<span></span></span>
+			</div>
+			<div class="am-u-sm-12 vidoss">
+				<span class="am-badge am-badge-danger am-radius am-u-sm-3 " style="margin-top: 0.3rem;">课程单价</span>
+				<span class="am-text-sm sp-ttx am-u-sm-5" style="float: left;">$&nbsp;100.00</span>
+				<a class="am-text-sm sp-ttx am-u-sm-4">我要购买</a>
+			</div>
+			<div class="am-u-sm-12 vidoss" style="margin-bottom: 0;">
+				<span class="am-badge am-badge-secondary am-radius am-u-sm-3 " style="margin-top: 0.3rem;">作者介绍</span>
+				<a class="am-text-sm sp-ttx am-u-sm-4" id="zuozhe1"></a>
+			</div>
+			<div class="am-u-sm-12 vidoss" style="margin: 0;" id="zuozhe">
+				<p class="am-text-sm am-u-sm-12" style="float: none; height:auto;">1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</p>
+			</div>
+			<div class="am-u-sm-12 vidoss" style="margin-bottom: 0;">
+				<span class="am-badge am-badge-secondary am-radius am-u-sm-3 " style="margin-top: 0.3rem;">课文详情</span>
+				<a class="am-text-sm sp-ttx am-u-sm-4" id="keCheng1"></a>
+			</div>
+			<div class="am-u-sm-12 vidoss" style="margin: 0;" id="keCheng">
+				<p class="am-text-sm am-u-sm-12" style="float: none; height:auto;">2222222222222222222222222222222222222222222222222222222222222222222222222222222222222211111111111111111111111111111111111111111111111111</p>
+			</div>
+		</div>
 	</body>
+
 </html>

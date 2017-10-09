@@ -88,11 +88,11 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 		$("#jiads").addClass("am-icon-spin");
 		$("#butt").addClass("am-disabled");
 		if($scope.fenlei == "0"){
-			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'';
+			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+''
 		}else if($scope.fenlei == "1"){
-			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344254119';
+			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344254119'
 		}else if($scope.fenlei == "2"){
-			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344560956';
+			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344560956'
 		}
 		$http({
 			method: 'GET',
@@ -133,35 +133,30 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 		window.location.href = "../view/lives/recordingHome.html?vid=" + u.vid;
 	}
 	
+	// 弹出带搜索按钮的键盘
 	$('#myinput').bind('search', function () {
-         //coding
-        alert(1);
-        var searc = $scope.searchs;
-        alert(1)
-//      $http({
-//			method: 'GET',
-//			url: 'https://v.polyv.net/uc/services/rest?method=searchByTitle&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&keyword='+searc+'&numPerPage=1'
-//		}).then(function successCallback(response) {
-//			$scope.liveList = response.data.data;
-//			$scope.lives1 = $scope.liveList;
-//			console.log($scope.lives1);
-//		}, function errorCallback(response) {
-//			// 请求失败执行代码
-//			alert("刷新失败");
-//		});
-     });
-     
-//  //搜索视频 
-//  $scope.clickEvent = function() {
-//  	
-//  }
+		$scope.clickEvent();
+    });
     
-    $scope.enterEvent = function(e) {
-        var keycode = window.event?e.keyCode:e.which;
-        if(keycode==13){
-            $scope.clickEvent();
-        }
-    }
+	//搜索视频
+  	$scope.clickEvent = function() {
+  		var searc = $scope.searchs;
+  		if(searc == ""){
+  			$scope.alls();
+  		}
+	  	$http({
+				method: 'GET',
+				url: 'https://v.polyv.net/uc/services/rest?method=searchByTitle&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&keyword='+searc+'&numPerPage=1'
+			}).then(function successCallback(response) {
+				$scope.liveList = response.data.data;
+				$scope.lives1 = $scope.liveList;
+				console.log($scope.lives1);
+			}, function errorCallback(response) {
+				//请求失败执行代码
+				alert("刷新失败");
+			});
+ 	}
+  	
 })
 
 // 直播列表页
@@ -171,15 +166,17 @@ app.config(['$locationProvider', function ($locationProvider) {
 	$locationProvider.html5Mode(true);
 }]);
 
-app.controller('myVidos', ['$scope','$location', function($scope,$location){
+app.controller('myVidos', ['$scope','$location','$http', function($scope,$location,$http){
+	// 视频Id
 	$scope.luId = "";
+	// 视频详情
+	$scope.xiangq = {};
+	//获取url中的值
 	console.log($location.search().vid); 
 	$scope.luId = $location.search().vid;
 	
+	//给视频id赋值
 	document.getElementsByName('lubo')[0].id = $scope.luId;
-	console.log(document.getElementsByName('lubo')[0].id)
-
-//	var ttd = document.getElementById('ttd');
 	var vid = $scope.luId
 	var player = polyvObject('#'+vid+'').videoPlayer({
 	    'width':'100%',
@@ -187,4 +184,16 @@ app.controller('myVidos', ['$scope','$location', function($scope,$location){
 	    'vid' : vid,
 	    'flashvars' : {"setScreen":"100"}
 	});
+	// 获取视频的单个信息
+	$http({
+			method: 'GET',
+			url: 'http://v.polyv.net/uc/services/rest?method=getById&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&vid='+vid+''
+		}).then(function successCallback(response) {
+			$scope.xiangq = response.data.data[0];
+			console.log($scope.xiangq)
+		}, function errorCallback(response) {
+			//请求失败执行代码
+			alert("刷新失败");
+	});
+	
 }]);
