@@ -1,4 +1,4 @@
-var app = angular.module('records', ['mgcrea.pullToRefresh']);
+var app = angular.module('records', []);
 app.controller('myRecord', function($scope,$http,$window,$location){
 	//直播列表
 	$scope.liveList = [];
