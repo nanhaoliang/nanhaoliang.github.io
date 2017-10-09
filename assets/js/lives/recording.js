@@ -196,4 +196,7 @@ app.controller('myVidos', ['$scope','$location','$http', function($scope,$locati
 			alert("刷新失败");
 	});
 	
+	$scope.zuo = function(){
+		alert(111);
+	}
 }]);
