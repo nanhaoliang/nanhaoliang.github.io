@@ -178,7 +178,7 @@ app.controller('myRecord', function($scope,$http,$window,$location){
   	
 })
 
-// 直播列表页
+// 录播列表页
 var app = angular.module('vidos', []);
 
 app.config(['$locationProvider', function ($locationProvider) {

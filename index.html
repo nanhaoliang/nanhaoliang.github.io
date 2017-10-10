@@ -51,17 +51,14 @@
 
 <!-- Header顶部 -->
 <header data-am-widget="header" class="am-header am-topbar-inverse am-header-fixed">
-  <div class="am-u-sm-9 am-input-group am-input-group-sm" >
-  	<h1 class="am-topbar-brand" style="padding: 0;">
+  <div class="am-u-sm-6 am-input-group-sm" >
+			<p><span class="am-icon-home am-icon-sm" style="padding-right: 1rem;"></span>Live Page</p>
+  </div>
+  <!--<div class="am-u-sm-9" style="float: none;">
+  	<h1 class="am-topbar-brand am-u-sm-9" style="">
 	    <a href="#">Live Page</a>
 	  </h1>
-    <!--<div class="am-input-group" style="margin-top: 0.4rem;" data-am-sticky>
-      <span class="am-input-group-label" style="padding:0px;color:black;background:bottom;border: 0px;">
-        <i class="am-icon-search am-icon-fw" style=" margin-top: 3px;color: #fff;"></i>
-      </span>
-      <input type="search" class="am-tiput am-form-field" id="keyword" style="font-size: 1.3rem!important;" placeholder="输入关键字搜索">
-    </div>-->
-  </div>
+  </div>-->
 </header>
 <!-- Menu左侧滑出分类 -->
 <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
@@ -233,27 +230,28 @@
 <div class="am-u-sm-12 am-tit" id="xueshu">
   <div class="am-cf" >
     <p class="am-fl am-zyfd" style="color:#999">精彩录播</p>
-    <a href="assets/view/recording.html" class="am-fr am-zyfd" style="color:#19bd9b">更多 &raquo;</a>
+    <a href="assets/view/recording.html" class="am-fr am-zyfd" style="color:#19bd9b" ng-click="luxiang()">更多 &raquo;</a>
   </div>
 </div>
 
 <!--录播内容-->
 <ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default">
   <li ng-repeat="lu in lubo">
+  	<p style="display: none;">{{lu.vid}}</p>
     <div class="am-gallery-item">
-        <img ng-src="{{lu.luImg}}"/>
+        <img ng-src="{{lu.first_image}}"/>
         <div class="am-u-sm-12 am-padel">
-	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">{{lu.luNei}}</h3>
+	  			<h3 class="am-gallery-title am-u-sm-10 am-padel">{{lu.title}}</h3>
 	  		</div>
-        
         <div class="am-gallery-desc am-u-sm-12 am-padel">
-        	<span class="am-u-sm-10 am-padel am-icon-caret-square-o-right">&nbsp;<span>{{lu.luTime}}</span></span>
+        	<span class="am-u-sm-8 am-padel am-icon-caret-square-o-right">&nbsp;<span>{{lu.duration}}</span></span>
+        	<a href="#" class="am-u-sm-3 lpd" ng-click="vidoh(lu)">回放</a>
         </div>
     </div>
   </li>
-    <div class="am-gallery-item am-cha">
+    <div class="am-gallery-item am-cha" ng-click="luxiang()">
     	<span class="am-icon-angle-double-right am-icon-lg"></span>
-    	<p style="margin-top: 1rem; font-size: 1.5rem;">查看详情</p>
+    	<p style="margin-top: 1rem; font-size: 1.5rem;" >查看详情</p>
     </div>
   </li>
 </ul>

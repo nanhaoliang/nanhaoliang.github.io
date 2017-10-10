@@ -11,12 +11,6 @@ $(function() {
     $('#my-confirm').modal({
       relatedTarget: this,
       closeViaDimmer: false,
-//    onConfirm: function(e) {
-//      确认按钮输入内容
-//    },
-//    onCancel: function(e) {
-//      取消按钮输入内容
-//    }
     });
     $('#my-confirm').find('.am-modal-btn').off('click.close.modal.amui');
     

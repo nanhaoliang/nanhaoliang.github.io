@@ -28,7 +28,9 @@
 					<span class="am-input-group-label" style="padding:0px;color:black;background:bottom;border: 0px;">
 				       <i class="am-icon-search am-icon-fw" style=" margin-top: 3px;color: #fff;"></i>
 				    </span>
-					<input type="search" class="am-tiput am-form-field" id="keyword" style="font-size: 1.3rem!important;">
+				    <form id="myform" action="" onsubmit="return false;">
+					<input type="search" id="myinput" class="am-tiput am-form-field" style="font-size: 1.3rem!important;" ng-model="searchs">
+					</form>
 				</div>
 			</div>
 		</header>
@@ -143,12 +145,18 @@
 					</div>
 				</div>
 				<div class="am-u-sm-12">
-					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;">&nbsp;09-31&nbsp;18:61~18:62</span>
-					<a href="#" class="am-u-sm-3 lpd lvbo">进入直播</a>
+					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;padding: 0;">{{u.ptime}}&nbsp;<span style="color: #99a4bd;">上传时间</span></span>
+					<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)">进入直播</a>
+					<!--<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)">我要购买</a>-->
 				</div>
 			</div>
 		</div>
-
+	
+		<!--加载更多-->
+		<div class="am-u-sm-12">
+			<button id="butt" type="button" class="am-btn am-btn-primary am-btn-block" ng-click="gengdu()"><i id="jiads" class="am-icon-spinner"></i>&nbsp;&nbsp;加载跟多</button>
+		</div>
+		<div id="a" style="display: none;">{{count}}</div>
 		<!--页脚简介-->
 		<div ng-include="'../view/introduce/footer.html'"></div>
 		
@@ -164,24 +172,6 @@
 		
 		<script src="../js/jquery-3.1.1.min.js"></script>
 		<script src="../js/amazeui.min.js"></script>
-		<script type="text/javascript">
-			//初始化操作
-			$(function() {
-					
-				
-			});
-			
-			//顶部搜索框搜索操作
-			$("#keyword").on('keypress', function(e) {
-				var keycode = e.keyCode;
-				var searchName = $(this).val();
-				if(keycode == '13') {
-					e.preventDefault();
-					//请求搜索接口  
-					alert("搜索");
-				}
-			});
-		</script>
 	</body>
 
 </html>

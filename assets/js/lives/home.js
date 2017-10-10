@@ -5,7 +5,7 @@ app.run(['$anchorScroll', function($anchorScroll) {
         // 在此处配置偏移量
 }])
 
-app.controller('homePage', function($scope,$interval,$location,$anchorScroll){
+app.controller('homePage', function($scope,$interval,$location,$anchorScroll,$http,$window){
 	
 	$scope.weixinName = "微信姓名";
 	$scope.phones = ""; //手机号
@@ -76,24 +76,9 @@ app.controller('homePage', function($scope,$interval,$location,$anchorScroll){
 		}
 	]
 	
-	//录播内容
-	$scope.lubo = [
-		{
-			luImg:"http://s.amazeui.org/media/i/demos/bing-1.jpg",
-			luNei:"内容内容111111111",
-			luTime:"09-31 18:61"
-		},
-		{
-			luImg:"http://s.amazeui.org/media/i/demos/bing-2.jpg",
-			luNei:"内容内容111111111",
-			luTime:"09-31 18:61"
-		},
-		{
-			luImg:"http://s.amazeui.org/media/i/demos/bing-3.jpg",
-			luNei:"内容内容111111111",
-			luTime:"09-31 18:61"
-		}
-	]
+	//录播内容  图片 title 上传时间
+	$scope.lulives = [];
+	$scope.lubo = [];
 	
 	//实时资讯
 	$scope.information = [
@@ -113,6 +98,29 @@ app.controller('homePage', function($scope,$interval,$location,$anchorScroll){
 			ziZhai:""
 		}
 	]
+	
+	$http({
+			method: 'GET',
+			url: 'https://v.polyv.net/uc/services/rest?method=getHotList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=3'
+		}).then(function successCallback(response) {
+			$scope.lulives = response.data.data;
+			$scope.lubo = $scope.lulives;
+			console.log($scope.lubo);
+		}, function errorCallback(response) {
+			// 请求失败执行代码
+			alert("刷新失败");
+	});
+	
+	//查看回放
+	$scope.vidoh = function(u,orderServiceId){
+		console.log(orderServiceId);
+		window.location.href = "assets/view/lives/recordingHome.html?vid="+u.vid;
+	}
+	
+	//录播列表页
+	$scope.luxiang = function(){
+		window.location.href = "assets/view/recording.html";
+	}
 	
 	//登录验证码
 	$scope.getTestCode = function(){
