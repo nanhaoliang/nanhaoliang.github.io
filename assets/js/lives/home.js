@@ -99,6 +99,17 @@ app.controller('homePage', function($scope,$interval,$location,$anchorScroll,$ht
 		}
 	]
 	
+//	$http({
+//			method: 'GET',
+//			url: 'http://www.comsplus.cn:86/'
+//		}).then(function successCallback(response) {
+//			console.log(response);
+//		}, function errorCallback(response) {
+//			// 请求失败执行代码
+//			alert("刷新失败");
+//	});
+
+	
 	$http({
 			method: 'GET',
 			url: 'https://v.polyv.net/uc/services/rest?method=getHotList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=3'
