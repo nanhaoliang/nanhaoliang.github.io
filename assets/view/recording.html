@@ -147,7 +147,8 @@
 				</div>
 				<div class="am-u-sm-12">
 					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;padding: 0;">{{u.ptime}}&nbsp;<span style="color: #99a4bd;">上传时间</span></span>
-					<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)">查看回放</a>
+					<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)" ng-if="u.cataid == '1507344560956'">查看回放</a>
+					<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)" ng-if="u.cataid == '1507344254119'">我要购买</a>
 				</div>
 			</div>
 		</div>

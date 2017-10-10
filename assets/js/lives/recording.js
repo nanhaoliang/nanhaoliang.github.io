@@ -7,9 +7,10 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 	$scope.searchs = "";
 	//记载更多条数
 	$scope.count = 10;
-	//点击加载跟多判断点的什么 0 全部  1付费 2限免
+	//点击加载跟多判断点的什么 0 全部  1付费 2限免 3最热
 	$scope.fenlei = "0";
 	
+	$scope.btnd = "";
 	// 初始化查询全部接口
 	$http({
 		method: 'GET',
@@ -80,6 +81,22 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 		});
 	}
 	
+	//最热
+	$scope.hottest = function(){
+		$scope.fenlei = "3";
+		$http({
+			method: 'GET',
+			url: 'https://v.polyv.net/uc/services/rest?method=getHotList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=10'
+		}).then(function successCallback(response) {
+			$scope.liveList = response.data.data;
+			$scope.lives1 = $scope.liveList;
+			console.log($scope.lives1)
+		}, function errorCallback(response) {
+			// 请求失败执行代码
+			alert("刷新失败");
+		});
+	}
+	
 	//加载更多
 	$scope.gengdu = function(){
 		var x=document.getElementById("a").innerHTML;
@@ -93,6 +110,8 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344254119'
 		}else if($scope.fenlei == "2"){
 			var urls = 'https://v.polyv.net/uc/services/rest?method=getNewList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+'&catatree=1,1507344560956'
+		}else if($scope.fenlei == "3"){
+			var urls = 'https://v.polyv.net/uc/services/rest?method=getHotList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage='+x+''
 		}
 		$http({
 			method: 'GET',
@@ -187,7 +206,7 @@ app.controller('myVidos', ['$scope','$location','$http', function($scope,$locati
 	// 获取视频的单个信息
 	$http({
 			method: 'GET',
-			url: 'http://v.polyv.net/uc/services/rest?method=getById&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&vid='+vid+''
+			url: 'https://v.polyv.net/uc/services/rest?method=getById&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&vid='+vid+''
 		}).then(function successCallback(response) {
 			$scope.xiangq = response.data.data[0];
 			console.log($scope.xiangq)
@@ -196,7 +215,4 @@ app.controller('myVidos', ['$scope','$location','$http', function($scope,$locati
 			alert("刷新失败");
 	});
 	
-	$scope.zuo = function(){
-		alert(111);
-	}
 }]);
