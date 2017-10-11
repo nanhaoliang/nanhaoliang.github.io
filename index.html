@@ -21,11 +21,11 @@
   <script src="assets/js/jquery-3.1.1.min.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/homePage.js"></script>
-	
+	<!--<base href="/">-->
 </head>
 <body ng-app="home" ng-controller="homePage">
 <!--模态框-->
-<!--<div class="am-modal am-modal-prompt" tabindex="-1" id="my-confirm">
+<div class="am-modal am-modal-prompt" tabindex="-1" id="my-confirm">
   <div class="am-modal-dialog" style="border-radius: 1rem;position: initial;">
     <div class="am-modal-hd">请登录</div>
     <div class="am-modal-bd" style="border: 0;padding-bottom: 1rem;">
@@ -39,7 +39,7 @@
       <span class="am-mo-btn" ng-click="common()" >登录</span>
     </div>
   </div>
-</div>-->
+</div>
 
 <!--loading 加载动画-->
 <div id="loader-wrapper">
@@ -211,14 +211,6 @@
 
 <!--页脚简介-->
 <div ng-include="'assets/view/introduce/footer.html'"></div>
-<!--<footer class="am-footer am-footer-default" style="background: #EFEFEF; margin-top: 2rem; margin-bottom: 49px;">
-	<div class="am-footer-miscs ">
-		<p>由
-			<a href="http://www.yunshipei.com/" title="11111" target="_blank" class="">hahahahah</a>提供技术支持</p>
-		<p>CopyRight©2017 WobuZhidao .zhibo</p>
-		<p>京ICP备13033158</p>
-	</div>
-</footer>-->
 
 <!--回到顶部-->
 <div data-am-widget="gotop" class="am-gotop am-gotop-fixed" style="width: 50px; bottom: 62px;">
@@ -228,7 +220,6 @@
 </div>
 
 <!-- 底部固定导航 -->
-<!--<div ng-include="'assets/view/introduce/indexBottom.html'"></div>-->
 <div  class="am-navbar am-cf am-navbar-default">
   <ul class="am-navbar-nav am-cf am-avg-sm-4">
     <li>
@@ -251,19 +242,5 @@
     </li>
   </ul>
 </div>
-
-
-<script type="text/javascript">
-	//顶部搜索框搜索操作
-$("#keyword").on('keypress', function(e) {
-	var keycode = e.keyCode;
-	var searchName = $(this).val();
-	if(keycode == '13') {
-		e.preventDefault();
-		//请求搜索接口  
-		alert("搜索");
-	}
-});
-</script>
 </body>
 </html>

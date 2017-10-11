@@ -16,6 +16,56 @@ app.controller('homePage', function($scope,$interval,$location,$anchorScroll,$ht
     var second=59;  
     var timerHandler; 
     
+    //录播内容  图片 title 上传时间
+	$scope.lulives = [];
+	$scope.lubo = [];
+    
+    //access_token json数据
+    $scope.token = {};
+    
+    // 用户信息
+    $scope.users = {};
+    
+    //获取code
+    $scope.codess = function(name){
+    	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+    var codes = $scope.codess('code');
+    
+    // 开发者id
+    var appid = "wxe4b8c941ba2e4b38";
+    //公众号的sectet
+    var secret = "8b5e2e52088fe3a1bffd95a5243549b5";
+    
+    // 通过code换取网页授权access_token
+    $http({
+		method: 'GET',
+		url: 'http://midwife.cnzcs.com/live/test.php'
+	}).then(function successCallback(response) {
+		$scope.token = response.data;
+	}, function errorCallback(response) {
+		// 请求失败执行代码
+		alert("请求失败")
+	});
+
+	// 用户token
+	var token =  $scope.token.access_token;
+	// 用户openid
+	var openid = $scope.token.openid;
+	// 获取用户基本信息
+//  $http({
+//		method: 'GET',
+//		url: 'http://api.weixin.qq.com/sns/userinfo?access_token='+token+'&openid='+openid+'&lang=zh_CN'
+//	}).then(function successCallback(response) {
+//		$scope.users = response;
+//		console.log($scope.users);
+//		alert($scope.users);
+//	}, function errorCallback(response) {
+//		// 请求失败执行代码
+//	});
+//	
 	// 轮播图
 	$scope.lunboImg = [
 		{
@@ -76,9 +126,6 @@ app.controller('homePage', function($scope,$interval,$location,$anchorScroll,$ht
 		}
 	]
 	
-	//录播内容  图片 title 上传时间
-	$scope.lulives = [];
-	$scope.lubo = [];
 	
 	//实时资讯
 	$scope.information = [
@@ -99,16 +146,15 @@ app.controller('homePage', function($scope,$interval,$location,$anchorScroll,$ht
 		}
 	]
 	
+	//热门录播
 	$http({
 			method: 'GET',
 			url: 'https://v.polyv.net/uc/services/rest?method=getHotList&readtoken=1dfa53b2-ae76-4bfd-8e98-5fd4ed0dc291&pageNum=1&numPerPage=3'
 		}).then(function successCallback(response) {
 			$scope.lulives = response.data.data;
 			$scope.lubo = $scope.lulives;
-			console.log($scope.lubo);
 		}, function errorCallback(response) {
 			// 请求失败执行代码
-			alert("刷新失败");
 	});
 	
 	//查看回放
