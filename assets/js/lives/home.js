@@ -2,7 +2,7 @@ var app = angular.module('home', []);
 
 app.run(['$anchorScroll', function($anchorScroll) {
         $anchorScroll.yOffset = 50;   
-        // 在此处配置偏移量
+        // 在此处配置偏移量 锚点设置
 }])
 
 app.controller('homePage', function($scope,$interval,$location,$anchorScroll,$http,$window){
@@ -98,17 +98,6 @@ app.controller('homePage', function($scope,$interval,$location,$anchorScroll,$ht
 			ziZhai:""
 		}
 	]
-	
-//	$http({
-//			method: 'GET',
-//			url: 'http://www.comsplus.cn:86/'
-//		}).then(function successCallback(response) {
-//			console.log(response);
-//		}, function errorCallback(response) {
-//			// 请求失败执行代码
-//			alert("刷新失败");
-//	});
-
 	
 	$http({
 			method: 'GET',

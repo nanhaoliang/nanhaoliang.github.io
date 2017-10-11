@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>实时直播</title>
+		<!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+		<title>已购商品</title>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum=1,minimum=1, user-scalable=no">
@@ -15,11 +16,11 @@
 		<link rel="stylesheet" href="../css/demo.css">
 		
 		<script src="../js/angular.min.js"></script>
-		<script src="../js/lives/lives.js"></script>
+		<script src="../js/lives/pullrefresh.js"></script>
+		<script src="../js/jquery-3.1.1.min.js"></script>
+		<script src="../js/amazeui.min.js"></script>
 	</head>
-
-	<body style="background: #efefef;" ng-app="lives" ng-controller="myLives">
-
+	<body  style="background: #efefef;" ng-app="pullregr" ng-controller="myPullregr">
 		<!-- Header顶部 -->
 		<header data-am-widget="header" class="am-header am-header-default am-header-fixed" id="lodd">
 			<div class="am-u-sm-9 am-input-group am-input-group-sm">
@@ -33,7 +34,7 @@
 				</div>
 			</div>
 		</header>
-
+	
 		<!-- Menu左侧滑出分类 -->
 		<nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
 		  <a href="javascript: void(0)" class="am-menu-toggle" style="position: fixed; top: 7px; z-index: 1088;margin-right: 16px;background: #3bb4f2;width: 38px;height: 36px;line-height: 35px;" >
@@ -46,14 +47,20 @@
   			</div>
 		</nav>
 		
-		<!--按钮分类组-->
-		<div ng-include="'../view/introduce/wallButtom.html'"></div>
+		<div class="am-btn-group am-btn-group-xs am-u-sm-12" style="margin: 0.5rem 0rem 0rem 0rem;">
+			<button type="button" class="am-btn am-btn-primary am-radius am-btn-group-xs" ng-click="alls()">全部</button>
+			<button type="button" class="am-btn am-btn-primary am-radius am-btn-group-xs" ng-click="live()">直播</button>
+			<button type="button" class="am-btn am-btn-primary am-radius am-btn-group-xs" ng-click="lubo()">录播</button>
+			<div style="margin-right: 1rem;">
+				<i class="am-icon-refresh am-fr am-icon-xl" style="color: #0e90d2;" ng-click="shux()" id="shaux"></i>
+			</div>
+		</div>
 		
 		<!--直播列表内容-->
 		<div ng-repeat="u in lives1" class="am-u-sm-12" style="padding: 0 6px 0 6px;">
 			<div class="am-u-sm-12 liti pamg">
 				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
-							<span class="am-badge am-badge-success am-radius am-u-sm-2" style="margin-top: 0.3rem;">{{u.title}}</span>
+							<span class="am-badge am-badge-success am-radius am-u-sm-2" style="margin-top: 0.3rem;">直播</span>
 							<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title1}}</span>
 					</div>
 				<div class="am-u-sm-6 lpd">
@@ -71,39 +78,64 @@
 						<span class="am-icon-map-marker am-u-sm-12 lpd sp-ttx" style="height: 2.5rem;"> {{u.place}}</span>
 						<span class="am-icon-video-camera am-u-sm-12 lpd" style="height: 2.5rem;">&nbsp;<span>$</span>{{u.price}}</span>
 						<span class="am-u-sm-12 lpd" style="font-size: 1.1rem; color: #99a4bd; height: 2.5rem;">{{u.signUp}}<span>人已报名</span></span>
-						<!--<div class="am-u-sm-12 lpd">
-							
-						</div>-->
 					</div>
 				</div>
 				<div class="am-u-sm-12">
 					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;padding: 0;">{{u.ptime}}&nbsp;<span style="color: #99a4bd;">上传时间</span></span>
 					<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)">进入直播</a>
-					<!--<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)">我要购买</a>-->
 				</div>
 			</div>
 		</div>
-	
+		
+		<!--录播列表内容-->
+		<div ng-repeat="u in lubo1" class="am-u-sm-12 " style="padding: 0 6px 0 6px;">
+			<span style="display: none;">{{u.vid}}</span>
+			<div class="am-u-sm-12 liti pamg am-animation-fade">
+				<div class="am-u-sm-12" style="margin-top: 0.5rem;">
+					<span class="am-badge am-badge-warning am-radius am-u-sm-2" style="margin-top: 0.3rem;">录播</span>
+					<span class="am-text-sm sp-ttx am-u-sm-9" style="padding: 0;margin-right: 2rem;">{{u.title}}</span>
+				</div>
+				<div class="am-u-sm-6 lpd">
+					<ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-3 am-avg-lg-4 am-gallery-default" style="overflow: auto; padding-top: 0;">
+						<li>
+							<div class="am-gallery-item">
+								<img ng-src="{{u.first_image}}" style="border-radius: 10px;" />
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="am-u-sm-6">
+					<div class="am-u-sm-12 am-hui" style="font-size: 1.3rem;">
+						<span class="am-icon-user am-u-sm-12 lpd" style="color: #0e90d2;height: 2.5rem;"> {{u.userName}}&nbsp;<span style="color: #99a4bd;">未开播</span></span>
+						<span class="am-icon-map-marker am-u-sm-12 lpd sp-ttx" style="height: 2.5rem;"> {{u.place}}</span>
+						<span class="am-icon-video-camera am-u-sm-12 lpd" style="height: 2.5rem;">&nbsp;<span>$</span>{{u.price}}</span>
+						<span class="am-u-sm-12 am-icon-eye lpd" style="font-size: 1.1rem; color: #99a4bd; height: 2.5rem;">{{u.times}}<span>人已观看</span></span>
+					</div>
+				</div>
+				<div class="am-u-sm-12">
+					<span class="am-u-sm-7 am-padel am-icon-calendar-check-o" style="font-size: 1.3rem;white-space: nowrap;padding: 0;">{{u.ptime}}&nbsp;<span style="color: #99a4bd;">上传时间</span></span>
+					<a href="#" class="am-u-sm-3 lpd lvbo" ng-click="vidoh(u)">查看回放</a>
+				</div>
+			</div>
+		</div>
+		
 		<!--加载更多-->
 		<div class="am-u-sm-12">
 			<button id="butt" type="button" class="am-btn am-btn-primary am-btn-block" ng-click="gengdu()"><i id="jiads" class="am-icon-spinner"></i>&nbsp;&nbsp;加载跟多</button>
 		</div>
 		<div id="a" style="display: none;">{{count}}</div>
+		
 		<!--页脚简介-->
 		<div ng-include="'../view/introduce/footer.html'"></div>
 		
+		<!-- 底部固定导航 -->
+		<div ng-include="'../view/introduce/allBottom.html'"></div>
+		
 		<!--回到顶部-->
-		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" style="width: 50px; bottom: 62px;">
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" style="width: 50px;bottom: 62px;">
 			<a href="#top" title="回到顶部">
 				<i class="am-icon-btn am-icon-arrow-up am-active"></i>
 			</a>
 		</div>
-
-		<!-- 底部固定导航 -->
-		<div ng-include="'../view/introduce/allBottom.html'"></div>
-		
-		<script src="../js/jquery-3.1.1.min.js"></script>
-		<script src="../js/amazeui.min.js"></script>
 	</body>
-
 </html>

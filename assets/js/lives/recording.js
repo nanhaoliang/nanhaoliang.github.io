@@ -5,7 +5,7 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 	$scope.lives1 = [];
 	//顶部搜索框
 	$scope.searchs = "";
-	//记载更多条数
+	//加载更多条数
 	$scope.count = 10;
 	//点击加载跟多判断点的什么 0 全部  1付费 2限免 3最热
 	$scope.fenlei = "0";
@@ -181,6 +181,7 @@ app.controller('myRecord', function($scope,$http,$window,$location){
 // 录播列表页
 var app = angular.module('vidos', []);
 
+//获取url中参数
 app.config(['$locationProvider', function ($locationProvider) {
 	$locationProvider.html5Mode(true);
 }]);
